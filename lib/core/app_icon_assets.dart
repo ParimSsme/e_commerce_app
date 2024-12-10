@@ -23,4 +23,5 @@ class AppIconAssets {
   static const String contact = '$_basePath/contact.svg';
   static const String share = '$_basePath/share.svg';
   static const String help = '$_basePath/help.svg';
+  static const String line = '$_basePath/line.svg';
 }

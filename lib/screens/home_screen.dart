@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:e_commerce_app/core/app_image_assets.dart';
 import 'package:e_commerce_app/models/product_model.dart';
+import 'package:e_commerce_app/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -109,16 +110,43 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Watch',
       image: AppImageAssets.watch,
       price: 40,
+      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      rate: 4.5,
+      reviewCount: 10,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: true),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
     ),
     ProductModel(
       name: 'Nike Shoes',
       image: AppImageAssets.nikeShoes,
       price: 430,
+      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      rate: 5,
+      reviewCount: 18,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: true),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
     ),
     ProductModel(
       name: 'Airpods',
       image: AppImageAssets.airpods,
       price: 333,
+      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      rate: 4.5,
+      reviewCount: 2,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: false),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
     ),
   ];
 
@@ -127,16 +155,41 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'LG TV',
       image: AppImageAssets.LG_TV,
       price: 330,
+      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      rate: 2.5,
+      reviewCount: 30,
+      sizes: [
+        SizeModel(size: 8, isAvailable: false),
+        SizeModel(size: 10, isAvailable: false),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
     ),
     ProductModel(
       name: 'Hoodie',
       image: AppImageAssets.hoodie,
       price: 50,
+      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      rate: 1.5,
+      reviewCount: 19,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: false),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
     ),
     ProductModel(
       name: 'Jacket',
       image: AppImageAssets.jacket,
       price: 400,
+      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      sizes: [
+        SizeModel(size: 8, isAvailable: false),
+        SizeModel(size: 10, isAvailable: false),
+        SizeModel(size: 38, isAvailable: false),
+        SizeModel(size: 40, isAvailable: true),
+      ],
     ),
   ];
 
@@ -280,50 +333,57 @@ class ProductListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-          color: Colors.grey.shade200, borderRadius: BorderRadius.circular(15)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 126,
-            height: 99,
-            alignment: Alignment.topRight,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(item.image),
-              ),
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                AppIconAssets.favourite,
-                width: 24,
-                height: 24,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  item.name,
-                  style: textTheme.titleSmall,
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ProductDetail(product: item),
+        ),
+      ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+            color: Colors.grey.shade200, borderRadius: BorderRadius.circular(15)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 126,
+              height: 99,
+              alignment: Alignment.topRight,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(item.image),
                 ),
-                Text(
-                  '\$${item.price}',
-                  style: textTheme.bodyMedium?.copyWith(
-                    color: const Color(0xff6055d8),
+                borderRadius: BorderRadius.circular(13),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset(
+                  AppIconAssets.favourite,
+                  width: 24,
+                  height: 24,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.name,
+                    style: textTheme.titleSmall,
                   ),
-                ),
-              ],
+                  Text(
+                    '\$${item.price}',
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: const Color(0xff6055d8),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
