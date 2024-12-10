@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:e_commerce_app/screens/home_screen.dart';
+import 'package:e_commerce_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -40,10 +41,8 @@ class _MainWrapperState extends State<MainWrapper> {
     Icon(
       Icons.chat,
       size: 150,
-    ),Icon(
-      Icons.chat,
-      size: 150,
     ),
+    ProfileScreen(),
   ];
 
   @override
