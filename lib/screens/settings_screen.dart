@@ -1,77 +1,51 @@
-import 'package:e_commerce_app/core/app_icon_assets.dart';
-import 'package:e_commerce_app/core/app_image_assets.dart';
-import 'package:e_commerce_app/screens/settings_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+import '../core/app_icon_assets.dart';
+import '../core/app_image_assets.dart';
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CircleAvatar(
-                radius: 40,
-                backgroundImage: AssetImage(AppImageAssets.userProfile),
-              ),
-              const Text('Mark Adam'),
-              const Text('Sunny_Koelpin45@hotmail.com'),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
+                padding: const EdgeInsets.fromLTRB(0, 3, 13, 3),
                 margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
+                child: const Row(
                   children: [
-                    SvgPicture.asset(
-                      AppIconAssets.profile,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
+                    CircleAvatar(
+                      radius: 24,
+                      backgroundImage: AssetImage(AppImageAssets.userProfile),
                     ),
-                    const Text('Profile'),
-                    const Spacer(),
-                    const Icon(Icons.arrow_forward_ios_rounded)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Mark Adam'),
+                        Text('Sunny_Koelpin45@hotmail.com'),
+                      ],
+                    ),
+                    Spacer(),
+                    Icon(Icons.arrow_forward_ios_rounded)
                   ],
                 ),
               ),
-              GestureDetector(
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: const EdgeInsets.all(13),
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        AppIconAssets.setting,
-                        colorFilter: const ColorFilter.mode(
-                          Colors.black,
-                          BlendMode.srcATop,
-                        ),
-                      ),
-                      const Text('Setting'),
-                      const Spacer(),
-                      const Icon(Icons.arrow_forward_ios_rounded)
-                    ],
-                  ),
-                ),
-              ),
+              const Divider(),
+              const Text('Setting'),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.grey.shade300,
@@ -81,13 +55,13 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      AppIconAssets.contact,
+                      AppIconAssets.notifications,
                       colorFilter: const ColorFilter.mode(
                         Colors.black,
                         BlendMode.srcATop,
                       ),
                     ),
-                    const Text('Contact'),
+                    const Text('Notification'),
                     const Spacer(),
                     const Icon(Icons.arrow_forward_ios_rounded)
                   ],
@@ -102,13 +76,35 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      AppIconAssets.share,
+                      AppIconAssets.language,
                       colorFilter: const ColorFilter.mode(
                         Colors.black,
                         BlendMode.srcATop,
                       ),
                     ),
-                    const Text('Share App'),
+                    const Text('Language'),
+                    const Spacer(),
+                    const Text('English'),
+                    const Icon(Icons.arrow_forward_ios_rounded)
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(10)),
+                padding: const EdgeInsets.all(13),
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      AppIconAssets.privacy,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.black,
+                        BlendMode.srcATop,
+                      ),
+                    ),
+                    const Text('Privacy'),
                     const Spacer(),
                     const Icon(Icons.arrow_forward_ios_rounded)
                   ],
@@ -123,23 +119,39 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      AppIconAssets.help,
+                      AppIconAssets.helpCenter,
                       colorFilter: const ColorFilter.mode(
                         Colors.black,
                         BlendMode.srcATop,
                       ),
                     ),
-                    const Text('Help'),
+                    const Text('Help Center'),
                     const Spacer(),
                     const Icon(Icons.arrow_forward_ios_rounded)
                   ],
                 ),
               ),
-              const Spacer(),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Sign Out'),
-              )
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(10)),
+                padding: const EdgeInsets.all(13),
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      AppIconAssets.aboutUs,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.black,
+                        BlendMode.srcATop,
+                      ),
+                    ),
+                    const Text('About us'),
+                    const Spacer(),
+                    const Icon(Icons.arrow_forward_ios_rounded)
+                  ],
+                ),
+              ),
             ],
           ),
         ),
