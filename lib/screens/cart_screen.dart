@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../models/cart_model.dart';
+import 'check_out_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -158,7 +159,14 @@ class CartScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              TextButton(onPressed: (){}, child: const Text('Check Out'),),
+              TextButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CheckOutScreen(),
+                  ),
+                ),
+                child: const Text('Check Out'),
+              ),
             ],
           ),
         ),
