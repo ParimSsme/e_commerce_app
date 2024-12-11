@@ -3,6 +3,7 @@ import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:e_commerce_app/core/app_image_assets.dart';
 import 'package:e_commerce_app/models/product_model.dart';
 import 'package:e_commerce_app/screens/product_detail.dart';
+import 'package:e_commerce_app/screens/products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,26 +16,27 @@ final List<String> imgList = [
 
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
-  child: Container(
-    margin: EdgeInsets.all(5.0),
-    decoration: BoxDecoration(
-      color: Color(0xff6055d8),
-    ),
-    child: Row(
-      children: [
-        const Column(
-          children: [
-            Text('Get Winter Discount'),
-            Text('20% Off'),
-            Text('For Children'),
-          ],
-        ),
-        Image.asset(AppImageAssets.sliderBoy),
-      ],
-    ),
-  ),
-))
+          child: Container(
+            margin: EdgeInsets.all(5.0),
+            decoration: BoxDecoration(
+              color: Color(0xff6055d8),
+            ),
+            child: Row(
+              children: [
+                const Column(
+                  children: [
+                    Text('Get Winter Discount'),
+                    Text('20% Off'),
+                    Text('For Children'),
+                  ],
+                ),
+                Image.asset(AppImageAssets.sliderBoy),
+              ],
+            ),
+          ),
+        ))
     .toList();
+
 class CarouselWithIndicatorDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -46,7 +48,6 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
   int _current = 0;
   final CarouselSliderController _controller = CarouselSliderController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
             items: imageSliders,
             carouselController: _controller,
             options: CarouselOptions(
-              disableCenter: true,
+                disableCenter: true,
                 autoPlay: true,
                 enlargeCenterPage: false,
                 // aspectRatio: 2.0,
@@ -76,12 +77,13 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
               child: Container(
                 width: 12.0,
                 height: 12.0,
-                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: (Theme.of(context).brightness == Brightness.dark
-                        ? Colors.white
-                        : const Color(0xff6055d8))
+                            ? Colors.white
+                            : const Color(0xff6055d8))
                         .withOpacity(_current == entry.key ? 0.9 : 0.4)),
               ),
             );
@@ -100,17 +102,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   int _current = 0;
   final CarouselSliderController _controller = CarouselSliderController();
-
 
   final List<ProductModel> featuredList = const [
     ProductModel(
       name: 'Watch',
       image: AppImageAssets.watch,
       price: 40,
-      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      description:
+          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -124,7 +125,8 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Nike Shoes',
       image: AppImageAssets.nikeShoes,
       price: 430,
-      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      description:
+          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 5,
       reviewCount: 18,
       sizes: [
@@ -138,7 +140,8 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Airpods',
       image: AppImageAssets.airpods,
       price: 333,
-      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      description:
+          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 2,
       sizes: [
@@ -155,7 +158,8 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'LG TV',
       image: AppImageAssets.LG_TV,
       price: 330,
-      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      description:
+          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 2.5,
       reviewCount: 30,
       sizes: [
@@ -169,7 +173,8 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Hoodie',
       image: AppImageAssets.hoodie,
       price: 50,
-      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      description:
+          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 1.5,
       reviewCount: 19,
       sizes: [
@@ -183,7 +188,8 @@ class _HomeScreenState extends State<HomeScreen> {
       name: 'Jacket',
       image: AppImageAssets.jacket,
       price: 400,
-      description: 'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      description:
+          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       sizes: [
         SizeModel(size: 8, isAvailable: false),
         SizeModel(size: 10, isAvailable: false),
@@ -225,7 +231,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   prefixIcon: SvgPicture.asset(AppIconAssets.search),
                 ),
               ),
-
               Column(children: [
                 SizedBox(
                   height: 200,
@@ -251,19 +256,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         width: 12.0,
                         height: 12.0,
-                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                        margin: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: (Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Colors.black)
-                                .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                            color:
+                                (Theme.of(context).brightness == Brightness.dark
+                                        ? Colors.white
+                                        : Colors.black)
+                                    .withOpacity(
+                                        _current == entry.key ? 0.9 : 0.4)),
                       ),
                     );
                   }).toList(),
                 ),
               ]),
-
               const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -273,7 +280,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: textTheme.titleMedium,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProductsScreen(),
+                      ),
+                    ),
                     child: const Text('See All'),
                   ),
                 ],
@@ -298,7 +309,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: textTheme.titleMedium,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProductsScreen(),
+                      ),
+                    ),
                     child: const Text('See All'),
                   ),
                 ],
@@ -341,7 +356,8 @@ class ProductListItem extends StatelessWidget {
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-            color: Colors.grey.shade200, borderRadius: BorderRadius.circular(15)),
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(15)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

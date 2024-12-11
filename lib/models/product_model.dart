@@ -6,6 +6,7 @@ class ProductModel {
   final int reviewCount;
   final String description;
   final List<SizeModel> sizes;
+  final bool isFavourite;
   const ProductModel({
     required this.name,
     required this.image,
@@ -14,6 +15,7 @@ class ProductModel {
     this.reviewCount = 0,
     required this.description,
     required this.sizes,
+    this.isFavourite = false,
   });
 }
 
