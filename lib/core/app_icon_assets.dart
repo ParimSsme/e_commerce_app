@@ -24,4 +24,6 @@ class AppIconAssets {
   static const String share = '$_basePath/share.svg';
   static const String help = '$_basePath/help.svg';
   static const String line = '$_basePath/line.svg';
+  static const String minus = '$_basePath/minus.svg';
+  static const String plus = '$_basePath/plus.svg';
 }

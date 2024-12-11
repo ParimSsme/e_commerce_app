@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/app_icon_assets.dart';
+import 'package:e_commerce_app/screens/cart_screen.dart';
 import 'package:e_commerce_app/screens/home_screen.dart';
 import 'package:e_commerce_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -38,10 +39,7 @@ class _MainWrapperState extends State<MainWrapper> {
       Icons.camera,
       size: 150,
     ),
-    Icon(
-      Icons.chat,
-      size: 150,
-    ),
+    CartScreen(),
     ProfileScreen(),
   ];
 
