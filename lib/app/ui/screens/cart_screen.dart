@@ -2,8 +2,7 @@ import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:e_commerce_app/core/app_image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../models/cart_model.dart';
+import '../../data/models/cart_model.dart';
 import 'check_out_screen.dart';
 
 class CartScreen extends StatelessWidget {

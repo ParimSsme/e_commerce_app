@@ -1,51 +1,28 @@
+import 'package:e_commerce_app/app/ui/screens/settings_screen.dart';
+import 'package:e_commerce_app/core/app_icon_assets.dart';
+import 'package:e_commerce_app/core/app_image_assets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-import '../core/app_icon_assets.dart';
-import '../core/app_image_assets.dart';
-
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        centerTitle: true,
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.fromLTRB(0, 3, 13, 3),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: const Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 24,
-                      backgroundImage: AssetImage(AppImageAssets.userProfile),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Mark Adam'),
-                        Text('Sunny_Koelpin45@hotmail.com'),
-                      ],
-                    ),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage(AppImageAssets.userProfile),
               ),
-              const Divider(),
-              const Text('Setting'),
+              const Text('Mark Adam'),
+              const Text('Sunny_Koelpin45@hotmail.com'),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.grey.shade300,
@@ -55,13 +32,62 @@ class SettingsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      AppIconAssets.notifications,
+                      AppIconAssets.profile,
                       colorFilter: const ColorFilter.mode(
                         Colors.black,
                         BlendMode.srcATop,
                       ),
                     ),
-                    const Text('Notification'),
+                    const Text('Profile'),
+                    const Spacer(),
+                    const Icon(Icons.arrow_forward_ios_rounded)
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(10)),
+                  padding: const EdgeInsets.all(13),
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        AppIconAssets.setting,
+                        colorFilter: const ColorFilter.mode(
+                          Colors.black,
+                          BlendMode.srcATop,
+                        ),
+                      ),
+                      const Text('Setting'),
+                      const Spacer(),
+                      const Icon(Icons.arrow_forward_ios_rounded)
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(10)),
+                padding: const EdgeInsets.all(13),
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      AppIconAssets.contact,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.black,
+                        BlendMode.srcATop,
+                      ),
+                    ),
+                    const Text('Contact'),
                     const Spacer(),
                     const Icon(Icons.arrow_forward_ios_rounded)
                   ],
@@ -76,35 +102,13 @@ class SettingsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      AppIconAssets.language,
+                      AppIconAssets.share,
                       colorFilter: const ColorFilter.mode(
                         Colors.black,
                         BlendMode.srcATop,
                       ),
                     ),
-                    const Text('Language'),
-                    const Spacer(),
-                    const Text('English'),
-                    const Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIconAssets.privacy,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
-                    ),
-                    const Text('Privacy'),
+                    const Text('Share App'),
                     const Spacer(),
                     const Icon(Icons.arrow_forward_ios_rounded)
                   ],
@@ -119,39 +123,23 @@ class SettingsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      AppIconAssets.helpCenter,
+                      AppIconAssets.help,
                       colorFilter: const ColorFilter.mode(
                         Colors.black,
                         BlendMode.srcATop,
                       ),
                     ),
-                    const Text('Help Center'),
+                    const Text('Help'),
                     const Spacer(),
                     const Icon(Icons.arrow_forward_ios_rounded)
                   ],
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIconAssets.aboutUs,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
-                    ),
-                    const Text('About us'),
-                    const Spacer(),
-                    const Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
-              ),
+              const Spacer(),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Sign Out'),
+              )
             ],
           ),
         ),

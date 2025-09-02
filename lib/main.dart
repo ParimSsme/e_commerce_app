@@ -1,10 +1,12 @@
 import 'package:e_commerce_app/core/app_icon_assets.dart';
-import 'package:e_commerce_app/screens/cart_screen.dart';
-import 'package:e_commerce_app/screens/home_screen.dart';
-import 'package:e_commerce_app/screens/profile_screen.dart';
-import 'package:e_commerce_app/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'app/controllers/home_controller.dart';
+import 'app/ui/screens/cart_screen.dart';
+import 'app/ui/screens/home_screen.dart';
+import 'app/ui/screens/profile_screen.dart';
+import 'app/ui/screens/search_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +18,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    Get.put(HomeController());
+
     return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,

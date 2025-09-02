@@ -1,7 +1,8 @@
 import 'package:e_commerce_app/core/app_icon_assets.dart';
-import 'package:e_commerce_app/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../data/models/product_model.dart';
 
 class ProductDetail extends StatelessWidget {
   final ProductModel product;

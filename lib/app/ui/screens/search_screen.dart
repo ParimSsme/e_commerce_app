@@ -1,14 +1,12 @@
-import 'package:e_commerce_app/screens/product_detail.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:e_commerce_app/app/ui/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../core/app_icon_assets.dart';
+import '../../../core/app_image_assets.dart';
+import '../../data/models/product_model.dart';
 
-import '../core/app_icon_assets.dart';
-import '../core/app_image_assets.dart';
-import '../models/product_model.dart';
-
-class ProductsScreen extends StatelessWidget {
-  const ProductsScreen({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
   final products = const [
     ProductModel(
@@ -16,7 +14,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.watch,
       price: 40,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -31,7 +29,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.nikeShoes,
       price: 430,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -47,7 +45,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.LG_TV,
       price: 330,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -63,7 +61,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.airpods,
       price: 333,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -79,7 +77,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.jacket,
       price: 50,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -95,7 +93,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.hoodie,
       price: 400,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -111,7 +109,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.tShirt1,
       price: 400,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -127,7 +125,7 @@ class ProductsScreen extends StatelessWidget {
       image: AppImageAssets.tShirt2,
       price: 400,
       description:
-          'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
+      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
       rate: 4.5,
       reviewCount: 10,
       sizes: [
@@ -154,7 +152,7 @@ class ProductsScreen extends StatelessWidget {
             size: 24.0,
           ),
         ),
-        title: const Text('Products'),
+        title: const TextField(),
         centerTitle: true,
       ),
       body: SafeArea(
