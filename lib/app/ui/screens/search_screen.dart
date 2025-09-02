@@ -1,178 +1,58 @@
 import 'package:e_commerce_app/app/ui/screens/product_detail.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../core/app_icon_assets.dart';
-import '../../../core/app_image_assets.dart';
 import '../../data/models/product_model.dart';
+import 'package:flutter/material.dart' hide SearchController;
+import 'package:get/get.dart';
+import '../../controllers/search_controller.dart';
+import '../widgets/search_product_item.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends GetView<SearchController> {
   const SearchScreen({super.key});
 
-  final products = const [
-    ProductModel(
-      name: 'Watch',
-      image: AppImageAssets.watch,
-      price: 40,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-    ),
-    ProductModel(
-      name: 'Nike Shoes',
-      image: AppImageAssets.nikeShoes,
-      price: 430,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: true,
-    ),
-    ProductModel(
-      name: 'LG TV',
-      image: AppImageAssets.LG_TV,
-      price: 330,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: true,
-    ),
-    ProductModel(
-      name: 'Airpods',
-      image: AppImageAssets.airpods,
-      price: 333,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: true,
-    ),
-    ProductModel(
-      name: 'Jacket',
-      image: AppImageAssets.jacket,
-      price: 50,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: false,
-    ),
-    ProductModel(
-      name: 'Hoodie',
-      image: AppImageAssets.hoodie,
-      price: 400,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: false,
-    ),
-    ProductModel(
-      name: 'T-Shirt',
-      image: AppImageAssets.tShirt1,
-      price: 400,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: true,
-    ),
-    ProductModel(
-      name: 'T-Shirt',
-      image: AppImageAssets.tShirt2,
-      price: 400,
-      description:
-      'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
-      rate: 4.5,
-      reviewCount: 10,
-      sizes: [
-        SizeModel(size: 8, isAvailable: true),
-        SizeModel(size: 10, isAvailable: true),
-        SizeModel(size: 38, isAvailable: true),
-        SizeModel(size: 40, isAvailable: false),
-      ],
-      isFavourite: true,
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 48,
         leading: RawMaterialButton(
-          onPressed: () {},
+          onPressed: () => Get.back(),
           fillColor: Colors.grey.shade200,
           padding: const EdgeInsets.only(left: 5.0),
           shape: const CircleBorder(),
-          child: const Icon(
-            Icons.arrow_back_ios,
-            size: 24.0,
+          child: const Icon(Icons.arrow_back_ios, size: 24.0),
+        ),
+        title: TextField(
+          controller: controller.searchTextController,
+          onChanged: controller.filterProducts,
+          decoration: const InputDecoration(
+            hintText: "Search products...",
+            border: InputBorder.none,
           ),
         ),
-        title: const TextField(),
         centerTitle: true,
       ),
       body: SafeArea(
-        child: GridView.builder(
+        child: Obx(
+              () => GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 17,
               crossAxisSpacing: 25,
               childAspectRatio: 1 / 1.1,
             ),
-            shrinkWrap: false,
             padding: const EdgeInsets.all(15),
-            itemCount: products.length,
-            itemBuilder: (_, int index) {
-              return ProductListItem(item: products[index]);
-            }),
+            itemCount: controller.filteredProducts.length,
+            itemBuilder: (_, index) {
+              return SearchProductItem(item: controller.filteredProducts[index]);
+            },
+          ),
+        ),
       ),
     );
   }
 }
+
 
 class ProductListItem extends StatelessWidget {
   final ProductModel item;

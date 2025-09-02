@@ -1,7 +1,8 @@
 import 'package:e_commerce_app/core/app_icon_assets.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide SearchController;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'app/controllers/home_controller.dart';
+import 'app/controllers/search_controller.dart';
 import 'app/ui/screens/cart_screen.dart';
 import 'app/ui/screens/home_screen.dart';
 import 'app/ui/screens/profile_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Get.put(HomeController());
+    Get.put(SearchController());
 
     return const MaterialApp(
       title: 'Flutter Demo',

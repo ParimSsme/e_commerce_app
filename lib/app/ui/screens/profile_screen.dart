@@ -1,15 +1,17 @@
 import 'package:e_commerce_app/app/ui/screens/settings_screen.dart';
 import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:e_commerce_app/core/app_image_assets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import '../widgets/profile_option.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -17,129 +19,58 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              /// User Avatar
               const CircleAvatar(
                 radius: 40,
                 backgroundImage: AssetImage(AppImageAssets.userProfile),
               ),
-              const Text('Mark Adam'),
-              const Text('Sunny_Koelpin45@hotmail.com'),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIconAssets.profile,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
-                    ),
-                    const Text('Profile'),
-                    const Spacer(),
-                    const Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
+              const SizedBox(height: 10),
+
+              /// Name & Email
+              Text("Mark Adam", style: textTheme.titleMedium),
+              Text(
+                "Sunny_Koelpin45@hotmail.com",
+                style: textTheme.bodySmall?.copyWith(color: Colors.grey),
               ),
-              GestureDetector(
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: const EdgeInsets.all(13),
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        AppIconAssets.setting,
-                        colorFilter: const ColorFilter.mode(
-                          Colors.black,
-                          BlendMode.srcATop,
-                        ),
-                      ),
-                      const Text('Setting'),
-                      const Spacer(),
-                      const Icon(Icons.arrow_forward_ios_rounded)
-                    ],
-                  ),
-                ),
+              const SizedBox(height: 20),
+
+              /// Profile Options
+              ProfileOption(
+                icon: AppIconAssets.profile,
+                label: "Profile",
+                onTap: () {},
               ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIconAssets.contact,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
-                    ),
-                    const Text('Contact'),
-                    const Spacer(),
-                    const Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
+              ProfileOption(
+                icon: AppIconAssets.setting,
+                label: "Settings",
+                onTap: () => Get.to(() => const SettingsScreen()),
               ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIconAssets.share,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
-                    ),
-                    const Text('Share App'),
-                    const Spacer(),
-                    const Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
+              ProfileOption(
+                icon: AppIconAssets.contact,
+                label: "Contact",
+                onTap: () {},
               ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.all(13),
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIconAssets.help,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.black,
-                        BlendMode.srcATop,
-                      ),
-                    ),
-                    const Text('Help'),
-                    const Spacer(),
-                    const Icon(Icons.arrow_forward_ios_rounded)
-                  ],
-                ),
+              ProfileOption(
+                icon: AppIconAssets.share,
+                label: "Share App",
+                onTap: () {},
               ),
+              ProfileOption(
+                icon: AppIconAssets.help,
+                label: "Help",
+                onTap: () {},
+              ),
+
               const Spacer(),
+
+              /// Sign Out
               TextButton(
                 onPressed: () {},
-                child: const Text('Sign Out'),
-              )
+                child: const Text(
+                  "Sign Out",
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
             ],
           ),
         ),

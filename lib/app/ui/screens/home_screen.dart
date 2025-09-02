@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/app/ui/screens/products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/home_controller.dart';
@@ -29,7 +30,13 @@ class HomeScreen extends GetView<HomeController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Featured", style: textTheme.titleMedium),
-                TextButton(onPressed: () {}, child: const Text("See All")),
+                TextButton(
+                    onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const ProductsScreen(),
+                          ),
+                        ),
+                    child: const Text("See All")),
               ],
             ),
             SizedBox(
