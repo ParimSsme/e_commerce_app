@@ -38,6 +38,7 @@ dependencies:
   flutter_svg:
   carousel_slider:
   get:
+  flutter_animate:
 
 dev_dependencies:
   flutter_test:

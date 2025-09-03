@@ -6,6 +6,8 @@ import 'package:flutter/material.dart' hide SearchController;
 import 'package:get/get.dart';
 import '../../controllers/search_controller.dart';
 import '../widgets/search_product_item.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
 
 class SearchScreen extends GetView<SearchController> {
   const SearchScreen({super.key});
@@ -21,7 +23,10 @@ class SearchScreen extends GetView<SearchController> {
           padding: const EdgeInsets.only(left: 5.0),
           shape: const CircleBorder(),
           child: const Icon(Icons.arrow_back_ios, size: 24.0),
-        ),
+        )
+            .animate()
+            .fadeIn(duration: 400.ms)
+            .slideX(begin: -0.3, end: 0),
         title: TextField(
           controller: controller.searchTextController,
           onChanged: controller.filterProducts,
@@ -29,7 +34,10 @@ class SearchScreen extends GetView<SearchController> {
             hintText: "Search products...",
             border: InputBorder.none,
           ),
-        ),
+        )
+            .animate(delay: 200.ms)
+            .fadeIn(duration: 400.ms)
+            .slideY(begin: -0.2, end: 0),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -44,15 +52,20 @@ class SearchScreen extends GetView<SearchController> {
             padding: const EdgeInsets.all(15),
             itemCount: controller.filteredProducts.length,
             itemBuilder: (_, index) {
-              return SearchProductItem(item: controller.filteredProducts[index]);
+              return SearchProductItem(item: controller.filteredProducts[index])
+                  .animate(delay: (120 * index).ms) // staggered entry
+                  .fadeIn(duration: 500.ms)
+                  .scale(begin: const Offset(0.6, 0.6), end: Offset(1, 1), duration: 600.ms, curve: Curves.easeOutBack)
+                  .flipV(begin: -0.5, end: 0, duration: 700.ms, curve: Curves.easeOut);
             },
-          ),
+          )
+              .animate(delay: 300.ms)
+              .fadeIn(duration: 600.ms),
         ),
       ),
     );
   }
 }
-
 
 class ProductListItem extends StatelessWidget {
   final ProductModel item;
