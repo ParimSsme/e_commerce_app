@@ -3,6 +3,8 @@ import 'package:flutter/material.dart' hide SearchController;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'app/controllers/home_controller.dart';
 import 'app/controllers/search_controller.dart';
+import 'app/routing/app_pages.dart';
+import 'app/routing/app_routes.dart';
 import 'app/ui/screens/cart_screen.dart';
 import 'app/ui/screens/home_screen.dart';
 import 'app/ui/screens/profile_screen.dart';
@@ -16,17 +18,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
 
-    Get.put(HomeController());
     Get.put(SearchController());
 
-    return const MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      title: 'E-Commerce app',
       debugShowCheckedModeBanner: false,
-      home: MainWrapper(),
+      initialRoute: AppRoutes.tabs,
+      getPages: AppPages.pages,
     );
   }
 }
@@ -41,7 +42,7 @@ class MainWrapper extends StatefulWidget {
 class _MainWrapperState extends State<MainWrapper> {
   int selectedTab = 0;
 
-  static const List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     HomeScreen(),
     SearchScreen(),
     CartScreen(),

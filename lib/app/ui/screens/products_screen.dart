@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import '../../controllers/products_controller.dart';
 import '../widgets/product_list_item.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
 
@@ -12,7 +15,10 @@ class ProductsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Products"),
+        title: const Text("Products")
+            .animate()
+            .fadeIn(duration: 500.ms)
+            .slideY(begin: -0.3, end: 0),
         centerTitle: true,
       ),
       body: GridView.builder(
@@ -29,9 +35,15 @@ class ProductsScreen extends StatelessWidget {
           return ProductListItem(
             item: product,
             onFavouriteToggle: () => controller.toggleFavourite(i),
-          );
+          )
+              .animate(delay: (100 * i).ms) // stagger effect
+              .fadeIn(duration: 400.ms)
+              .scale(begin: const Offset(0.7, 0.7), end: Offset(1, 1), curve: Curves.easeOutBack)
+              .slideY(begin: 0.2, end: 0);
         },
-      ),
+      )
+          .animate(delay: 300.ms) // animate grid appearance
+          .fadeIn(duration: 600.ms),
     );
   }
 }

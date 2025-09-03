@@ -1,8 +1,11 @@
 import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import '../../controllers/checkout_controller.dart';
+import '../widgets/order_summary.dart';
 
-class CheckOutScreen extends StatelessWidget {
+class CheckOutScreen extends GetView<CheckoutController> {
   const CheckOutScreen({super.key});
 
   @override
@@ -11,16 +14,13 @@ class CheckOutScreen extends StatelessWidget {
       appBar: AppBar(
         leadingWidth: 48,
         leading: RawMaterialButton(
-          onPressed: () {},
+          onPressed: Get.back,
           fillColor: Colors.grey.shade200,
           padding: const EdgeInsets.only(left: 5.0),
           shape: const CircleBorder(),
-          child: const Icon(
-            Icons.arrow_back_ios,
-            size: 24.0,
-          ),
+          child: const Icon(Icons.arrow_back_ios, size: 24.0),
         ),
-        title: const Text('Cart'),
+        title: const Text('Checkout'),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -29,177 +29,149 @@ class CheckOutScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
-                children: [
-                  RawMaterialButton(
-                    onPressed: () {},
-                    fillColor: Colors.grey.shade200,
-                    padding: const EdgeInsets.all(15.0),
-                    shape: const CircleBorder(),
-                    child: SvgPicture.asset(
-                      AppIconAssets.location,
-                    ),
-                  ),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('325 15th Eighth Avenue, NewYork'),
-                      Text('Saepe eaque fugiat ea voluptatum veniam.'),
-                    ],
-                  )
-                ],
-              ),
+              // 📍 Delivery Address
+              _DeliveryAddress(),
+
               const SizedBox(height: 15),
-              Row(
-                children: [
-                  RawMaterialButton(
-                    onPressed: () {},
-                    fillColor: const Color(0x7163cdff),
-                    padding: const EdgeInsets.all(10.0),
-                    shape: const CircleBorder(),
-                    child: const Icon(
-                      Icons.access_time_filled_rounded,
-                      color: Color(0xff6055d8),
-                      size: 34,
-                    ),
-                  ),
-                  const Text('6:00 pm, Wednesday 20')
-                ],
-              ),
+
+              // ⏰ Delivery Time
+              _DeliveryTime(),
+
               const Spacer(),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Order Summary'),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Items'),
-                              Text('3'),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Subtotal'),
-                              Text('\$423'),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Discount'),
-                              Text('\$4'),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Delivery Charges'),
-                              Text('\$2'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Divider(),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Total'),
-                              Text('\$423'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+              // 📊 Order Summary (reused widget)
+              Obx(() => OrderSummary(
+                itemCount: controller.itemCount.value,
+                subtotal: controller.subtotal.value,
+                discount: controller.discount.value,
+                delivery: controller.deliveryCharge.value,
+                total: controller.total,
+              )),
+
               const Spacer(),
+
               const Text('Choose payment method'),
               const SizedBox(height: 10),
-              Row(
-                children: [
-                  SvgPicture.asset(AppIconAssets.paypal),
-                  const SizedBox(width: 8),
-                  const Text('Paypal'),
-                  const Spacer(),
-                  Checkbox(
-                    value: false,
-                    onChanged: (val) {},
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset(AppIconAssets.creditCard),
-                  const SizedBox(width: 8),
-                  const Text('Credit Card'),
-                  const Spacer(),
-                  Checkbox(
-                    value: false,
-                    onChanged: (val) {},
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset(AppIconAssets.cash),
-                  const SizedBox(width: 8),
-                  const Text('Cash'),
-                  const Spacer(),
-                  Checkbox(
-                    value: false,
-                    onChanged: (val) {},
-                  ),
-                ],
-              ),
+
+              // 💳 Payment Methods
+              Obx(() => Column(
+                children: controller.paymentMethods
+                    .map((method) => _PaymentOption(
+                  icon: method.icon,
+                  label: method.name,
+                  isSelected: controller.selectedPayment.value ==
+                      method.name,
+                  onTap: () =>
+                      controller.selectPayment(method.name),
+                ))
+                    .toList(),
+              )),
+
+              const SizedBox(height: 10),
+
+              // ➕ Add Payment
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Add new payment method'),
                   RawMaterialButton(
-                    onPressed: () {},
+                    onPressed: controller.addPaymentMethod,
                     fillColor: Colors.grey.shade200,
-                    padding: const EdgeInsets.all(0),
-                    constraints: BoxConstraints.tight(const Size(24, 24)),
+                    constraints: BoxConstraints.tight(Size(24, 24)),
+                    padding: EdgeInsets.zero,
                     shape: const CircleBorder(),
-                    child: const Icon(
-                      Icons.add,
-                      size: 13.0,
-                      color: Color(0xff6055d8),
-                    ),
+                    child: const Icon(Icons.add,
+                        size: 13.0, color: Color(0xff6055d8)),
                   ),
                 ],
               ),
+
               const Spacer(),
+
+              // ✅ Confirm Checkout
               TextButton(
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const CheckOutScreen(),
-                  ),
-                ),
-                child: const Text('Check Out'),
+                onPressed: controller.onCheckout,
+                child: const Text('Confirm Order'),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _DeliveryAddress extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        RawMaterialButton(
+          onPressed: () {},
+          fillColor: Colors.grey.shade200,
+          padding: const EdgeInsets.all(15.0),
+          shape: const CircleBorder(),
+          child: SvgPicture.asset(AppIconAssets.location),
+        ),
+        const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('325 15th Eighth Avenue, NewYork'),
+            Text('Saepe eaque fugiat ea voluptatum veniam.'),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class _DeliveryTime extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        RawMaterialButton(
+          onPressed: () {},
+          fillColor: const Color(0x7163cdff),
+          padding: const EdgeInsets.all(10.0),
+          shape: const CircleBorder(),
+          child: const Icon(Icons.access_time_filled_rounded,
+              color: Color(0xff6055d8), size: 34),
+        ),
+        const Text('6:00 pm, Wednesday 20'),
+      ],
+    );
+  }
+}
+
+class _PaymentOption extends StatelessWidget {
+  final String icon;
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _PaymentOption({
+    required this.icon,
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Row(
+        children: [
+          SvgPicture.asset(icon),
+          const SizedBox(width: 8),
+          Text(label),
+          const Spacer(),
+          Checkbox(
+            value: isSelected,
+            onChanged: (_) => onTap(),
+          ),
+        ],
       ),
     );
   }
