@@ -36,17 +36,18 @@ class ProductsScreen extends StatelessWidget {
             item: product,
             onFavouriteToggle: () => controller.toggleFavourite(i),
           )
-              .animate(delay: (100 * i).ms) // stagger effect
-              .fadeIn(duration: 400.ms)
-              .scale(begin: const Offset(0.7, 0.7), end: Offset(1, 1), curve: Curves.easeOutBack)
-              .slideY(begin: 0.2, end: 0);
+              .animate(delay: (120 * i).ms) // staggered like search screen
+              .fadeIn(duration: 500.ms)
+              .scale(begin: const Offset(0.6, 0.6), end: Offset(1, 1), duration: 600.ms, curve: Curves.easeOutBack)
+              .flipV(begin: -0.5, end: 0, duration: 700.ms, curve: Curves.easeOut);
         },
       )
-          .animate(delay: 300.ms) // animate grid appearance
+          .animate(delay: 300.ms)
           .fadeIn(duration: 600.ms),
     );
   }
 }
+
 
 
 

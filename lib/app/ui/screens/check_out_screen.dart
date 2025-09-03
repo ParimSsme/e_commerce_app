@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../controllers/checkout_controller.dart';
 import '../widgets/order_summary.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class CheckOutScreen extends GetView<CheckoutController> {
   const CheckOutScreen({super.key});
@@ -19,8 +20,14 @@ class CheckOutScreen extends GetView<CheckoutController> {
           padding: const EdgeInsets.only(left: 5.0),
           shape: const CircleBorder(),
           child: const Icon(Icons.arrow_back_ios, size: 24.0),
-        ),
-        title: const Text('Checkout'),
+        )
+            .animate()
+            .fadeIn(duration: 400.ms)
+            .slideX(begin: -0.3, end: 0),
+        title: const Text('Checkout')
+            .animate(delay: 200.ms)
+            .fadeIn(duration: 500.ms)
+            .slideY(begin: -0.2, end: 0),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -30,40 +37,52 @@ class CheckOutScreen extends GetView<CheckoutController> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // 📍 Delivery Address
-              _DeliveryAddress(),
+              _DeliveryAddress()
+                  .animate(delay: 300.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideX(begin: -0.2, end: 0),
 
               const SizedBox(height: 15),
 
               // ⏰ Delivery Time
-              _DeliveryTime(),
+              _DeliveryTime()
+                  .animate(delay: 500.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideX(begin: 0.2, end: 0),
 
               const Spacer(),
 
-              // 📊 Order Summary (reused widget)
+              // 📊 Order Summary
               Obx(() => OrderSummary(
                 itemCount: controller.itemCount.value,
                 subtotal: controller.subtotal.value,
                 discount: controller.discount.value,
                 delivery: controller.deliveryCharge.value,
                 total: controller.total,
-              )),
+              )
+                  .animate(delay: 700.ms)
+                  .fadeIn(duration: 500.ms)
+                  .scale(begin: const Offset(0.9, 0.9), end: Offset(1, 1), curve: Curves.easeOutBack)),
 
               const Spacer(),
 
-              const Text('Choose payment method'),
-              const SizedBox(height: 10),
-
               // 💳 Payment Methods
+              const Text('Choose payment method')
+                  .animate(delay: 900.ms)
+                  .fadeIn(duration: 400.ms)
+                  .slideY(begin: 0.2, end: 0),
+              const SizedBox(height: 10),
               Obx(() => Column(
                 children: controller.paymentMethods
                     .map((method) => _PaymentOption(
                   icon: method.icon,
                   label: method.name,
-                  isSelected: controller.selectedPayment.value ==
-                      method.name,
-                  onTap: () =>
-                      controller.selectPayment(method.name),
-                ))
+                  isSelected: controller.selectedPayment.value == method.name,
+                  onTap: () => controller.selectPayment(method.name),
+                )
+                    .animate(delay: 1000.ms + (controller.paymentMethods.indexOf(method) * 200).ms)
+                    .fadeIn(duration: 400.ms)
+                    .slideY(begin: 0.3, end: 0))
                     .toList(),
               )),
 
@@ -77,22 +96,28 @@ class CheckOutScreen extends GetView<CheckoutController> {
                   RawMaterialButton(
                     onPressed: controller.addPaymentMethod,
                     fillColor: Colors.grey.shade200,
-                    constraints: BoxConstraints.tight(Size(24, 24)),
+                    constraints: BoxConstraints.tight(const Size(24, 24)),
                     padding: EdgeInsets.zero,
                     shape: const CircleBorder(),
-                    child: const Icon(Icons.add,
-                        size: 13.0, color: Color(0xff6055d8)),
+                    child: const Icon(Icons.add, size: 13.0, color: Color(0xff6055d8)),
                   ),
                 ],
-              ),
+              )
+                  .animate(delay: 1400.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideX(begin: -0.2, end: 0),
 
               const Spacer(),
 
-              // ✅ Confirm Checkout
+              // ✅ Confirm Checkout Button
               TextButton(
                 onPressed: controller.onCheckout,
                 child: const Text('Confirm Order'),
-              ),
+              )
+                  .animate(delay: 1600.ms)
+                  .fadeIn(duration: 600.ms)
+                  .scale(begin: const Offset(0.8, 0.8), end: Offset(1, 1), curve: Curves.elasticOut)
+                  .shake(hz: 2, curve: Curves.easeInOut),
             ],
           ),
         ),
@@ -176,3 +201,4 @@ class _PaymentOption extends StatelessWidget {
     );
   }
 }
+

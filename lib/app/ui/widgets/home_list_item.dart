@@ -28,22 +28,25 @@ class HomeListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 126,
-              height: 99,
-              alignment: Alignment.topRight,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(item.image),
+            Hero(
+              tag: 'product_${item.name}',
+              child: Container(
+                width: 126,
+                height: 99,
+                alignment: Alignment.topRight,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(item.image),
+                  ),
+                  borderRadius: BorderRadius.circular(13),
                 ),
-                borderRadius: BorderRadius.circular(13),
-              ),
-              child: IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  AppIconAssets.favourite,
-                  width: 24,
-                  height: 24,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    AppIconAssets.favourite,
+                    width: 24,
+                    height: 24,
+                  ),
                 ),
               ),
             ),

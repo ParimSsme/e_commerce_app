@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import '../../controllers/settings_controller.dart';
 import '../widgets/settings_item.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
 class SettingsScreen extends GetView<SettingsController> {
   const SettingsScreen({super.key});
 
@@ -12,7 +15,10 @@ class SettingsScreen extends GetView<SettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('Settings')
+            .animate()
+            .fadeIn(duration: 500.ms)
+            .slideY(begin: -0.3, end: 0),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -50,38 +56,54 @@ class SettingsScreen extends GetView<SettingsController> {
                     ],
                   ),
                 ),
-              ),
+              )
+                  .animate(delay: 200.ms)
+                  .fadeIn(duration: 600.ms)
+                  .scale(begin: const Offset(0.85, 0.85), end: Offset(1, 1), curve: Curves.easeOutBack),
 
-              const Divider(),
-              const Text('Settings'),
+              const Divider()
+                  .animate(delay: 400.ms)
+                  .fadeIn(duration: 500.ms),
 
-              // Settings Items
-              SettingsItem(
-                iconPath: AppIconAssets.notifications,
-                title: "Notification",
-                onTap: controller.onNotificationTap,
-              ),
-              SettingsItem(
-                iconPath: AppIconAssets.language,
-                title: "Language",
-                trailing: const Text("English"),
-                onTap: controller.onLanguageTap,
-              ),
-              SettingsItem(
-                iconPath: AppIconAssets.privacy,
-                title: "Privacy",
-                onTap: controller.onPrivacyTap,
-              ),
-              SettingsItem(
-                iconPath: AppIconAssets.helpCenter,
-                title: "Help Center",
-                onTap: controller.onHelpTap,
-              ),
-              SettingsItem(
-                iconPath: AppIconAssets.aboutUs,
-                title: "About Us",
-                onTap: controller.onAboutTap,
-              ),
+              const Text('Settings')
+                  .animate(delay: 500.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideX(begin: -0.2, end: 0),
+
+              const SizedBox(height: 10),
+
+              // Settings Items (Staggered)
+              ...[
+                SettingsItem(
+                  iconPath: AppIconAssets.notifications,
+                  title: "Notification",
+                  onTap: controller.onNotificationTap,
+                ),
+                SettingsItem(
+                  iconPath: AppIconAssets.language,
+                  title: "Language",
+                  trailing: const Text("English"),
+                  onTap: controller.onLanguageTap,
+                ),
+                SettingsItem(
+                  iconPath: AppIconAssets.privacy,
+                  title: "Privacy",
+                  onTap: controller.onPrivacyTap,
+                ),
+                SettingsItem(
+                  iconPath: AppIconAssets.helpCenter,
+                  title: "Help Center",
+                  onTap: controller.onHelpTap,
+                ),
+                SettingsItem(
+                  iconPath: AppIconAssets.aboutUs,
+                  title: "About Us",
+                  onTap: controller.onAboutTap,
+                ),
+              ]
+                  .animate(interval: 150.ms, delay: 700.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideX(begin: -0.3, end: 0),
             ],
           ),
         ),
@@ -89,3 +111,4 @@ class SettingsScreen extends GetView<SettingsController> {
     );
   }
 }
+

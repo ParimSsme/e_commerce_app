@@ -4,6 +4,7 @@ import 'check_out_screen.dart';
 import 'package:get/get.dart';
 import '../widgets/cart_item.dart';
 import '../widgets/order_summary.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class CartScreen extends GetView<CartController> {
   const CartScreen({super.key});
@@ -21,8 +22,14 @@ class CartScreen extends GetView<CartController> {
           padding: const EdgeInsets.only(left: 5.0),
           shape: const CircleBorder(),
           child: const Icon(Icons.arrow_back_ios, size: 24.0),
-        ),
-        title: const Text('Cart'),
+        )
+            .animate()
+            .fadeIn(duration: 400.ms)
+            .slideX(begin: -0.3, end: 0),
+        title: const Text('Cart')
+            .animate(delay: 200.ms)
+            .fadeIn(duration: 500.ms)
+            .slideY(begin: -0.2, end: 0),
         centerTitle: true,
         actions: [
           RawMaterialButton(
@@ -31,7 +38,10 @@ class CartScreen extends GetView<CartController> {
             padding: const EdgeInsets.all(12.0),
             shape: const CircleBorder(),
             child: const Icon(Icons.more_vert, size: 24.0),
-          ),
+          )
+              .animate(delay: 300.ms)
+              .fadeIn(duration: 400.ms)
+              .slideX(begin: 0.3, end: 0),
         ],
       ),
       body: SafeArea(
@@ -43,8 +53,11 @@ class CartScreen extends GetView<CartController> {
               SizedBox(
                 height: height * 0.44,
                 child: Obx(() => ListView.separated(
-                  itemBuilder: (_, index) =>
-                      CartItem(item: controller.carts[index]),
+                  itemBuilder: (_, index) => CartItem(item: controller.carts[index])
+                      .animate(delay: (100 * index).ms) // staggered per item
+                      .fadeIn(duration: 400.ms)
+                      .scale(begin: const Offset(0.8, 0.8), end: Offset(1, 1), curve: Curves.easeOutBack)
+                      .slideX(begin: -0.2, end: 0),
                   separatorBuilder: (_, __) => const SizedBox(height: 16),
                   itemCount: controller.carts.length,
                 )),
@@ -59,15 +72,21 @@ class CartScreen extends GetView<CartController> {
                 discount: controller.discount,
                 delivery: controller.deliveryCharge,
                 total: controller.total,
-              )),
+              )
+                  .animate(delay: 600.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideY(begin: 0.3, end: 0)),
 
               const Spacer(),
 
-              // ✅ Checkout Button
               TextButton(
                 onPressed: () => Get.to(() => const CheckOutScreen()),
                 child: const Text('Check Out'),
-              ),
+              )
+                  .animate(delay: 900.ms)
+                  .fadeIn(duration: 500.ms)
+                  .scale(begin: const Offset(0.8, 0.8), end: Offset(1, 1))
+                  .shake(hz: 3, curve: Curves.easeInOut),
             ],
           ),
         ),
@@ -75,4 +94,5 @@ class CartScreen extends GetView<CartController> {
     );
   }
 }
+
 
