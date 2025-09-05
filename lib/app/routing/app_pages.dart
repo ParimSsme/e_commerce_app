@@ -1,10 +1,14 @@
 import 'package:e_commerce_app/app/bindings/cart_binding.dart';
+import 'package:e_commerce_app/app/bindings/checkout_binding.dart';
 import 'package:e_commerce_app/app/bindings/home_binding.dart';
 import 'package:e_commerce_app/app/bindings/search_binding.dart';
+import 'package:e_commerce_app/app/bindings/settings_binding.dart';
+import 'package:e_commerce_app/app/ui/screens/check_out_screen.dart';
 import 'package:e_commerce_app/app/ui/screens/home_screen.dart';
 import 'package:e_commerce_app/app/ui/screens/search_screen.dart';
+import 'package:e_commerce_app/app/ui/screens/settings_screen.dart';
 import 'package:get/get.dart';
-import '../../main.dart';
+import '../ui/widgets/bottom_nav_bar.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -29,6 +33,15 @@ class AppPages {
       page: () => const SearchScreen(),
       binding: SearchBinding(),
     ),
-
+    GetPage(
+      name: AppRoutes.settings,
+      page: () => const SettingsScreen(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.checkout,
+      page: () => const CheckOutScreen(),
+      binding: CheckoutBinding(),
+    ),
   ];
 }

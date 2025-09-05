@@ -10,65 +10,81 @@ class CarouselSliderItem extends StatelessWidget {
 
   final HomeController carouselCtrl = Get.find();
 
-  final List<String> imgList = [
-    "https://picsum.photos/400/200",
-    "https://picsum.photos/401/200",
-    "https://picsum.photos/402/200",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         CarouselSlider(
-          items: imgList
-              .map((img) => ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child:  Container(
-              margin: const EdgeInsets.all(5.0),
-              decoration: const BoxDecoration(
-                color: Color(0xff6055d8),
-              ),
-              child: Row(
-                children: [
-                  const Column(
-                    children: [
-                      Text('Get Winter Discount'),
-                      Text('20% Off'),
-                      Text('For Children'),
-                    ],
-                  ),
-                  Image.asset(AppImageAssets.sliderBoy),
-                ],
-              ),
-            ),
-          ))
-              .toList(),
           options: CarouselOptions(
+            height: 200,
             autoPlay: true,
-            aspectRatio: 2.0,
+            viewportFraction: 1,
+            aspectRatio: 16 / 9,
             enlargeCenterPage: true,
-            onPageChanged: (index, reason) =>
-                carouselCtrl.changeIndex(index),
+            enlargeStrategy: CenterPageEnlargeStrategy.scale,
           ),
+          items: List.generate(4, (index) {
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                // margin: const EdgeInsets.all(5.0),
+                decoration: const BoxDecoration(
+                  color: Color(0xff6055d8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Get Winter Discount',
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          '20% Off',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'For Children',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    Image.asset(
+                      AppImageAssets.sliderBoy,
+                      height: 120,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }),
         ),
         const SizedBox(height: 10),
         Obx(() => Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: imgList.asMap().entries.map((entry) {
-            return Container(
-              width: 12,
-              height: 12,
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: carouselCtrl.currentCarouselIndex.value == entry.key
-                    ? Colors.deepPurple
-                    : Colors.grey,
-              ),
-            );
-          }).toList(),
-        )),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(4, (index) {
+                return Container(
+                  width: 12,
+                  height: 12,
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: carouselCtrl.currentCarouselIndex.value == index
+                        ? Colors.deepPurple
+                        : Colors.grey,
+                  ),
+                );
+              }),
+            )),
       ],
     );
   }

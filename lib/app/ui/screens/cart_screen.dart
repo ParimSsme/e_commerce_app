@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../controllers/cart_controller.dart';
+import '../../routing/app_routes.dart';
 import 'check_out_screen.dart';
 import 'package:get/get.dart';
 import '../widgets/cart_item.dart';
@@ -80,7 +81,7 @@ class CartScreen extends GetView<CartController> {
               const Spacer(),
 
               TextButton(
-                onPressed: () => Get.to(() => const CheckOutScreen()),
+                onPressed: () => Get.toNamed(AppRoutes.checkout),
                 child: const Text('Check Out'),
               )
                   .animate(delay: 900.ms)

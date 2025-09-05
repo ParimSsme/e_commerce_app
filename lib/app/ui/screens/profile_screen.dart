@@ -3,6 +3,7 @@ import 'package:e_commerce_app/core/app_icon_assets.dart';
 import 'package:e_commerce_app/core/app_image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../routing/app_routes.dart';
 import '../widgets/profile_option.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -58,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
                 ProfileOption(
                   icon: AppIconAssets.setting,
                   label: "Settings",
-                  onTap: () => Get.to(() => const SettingsScreen()),
+                  onTap: () => Get.toNamed(AppRoutes.settings),
                 ),
                 ProfileOption(
                   icon: AppIconAssets.contact,
