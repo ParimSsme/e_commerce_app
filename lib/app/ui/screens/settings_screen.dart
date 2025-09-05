@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../core/app_icon_assets.dart';
-import '../../../core/app_image_assets.dart';
+import '../../../core/resources/app_icons.dart';
+import '../../../core/resources/app_images.dart';
 import 'package:get/get.dart';
 import '../../controllers/settings_controller.dart';
 import '../widgets/settings_item.dart';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class SettingsScreen extends GetView<SettingsController> {
@@ -41,7 +39,7 @@ class SettingsScreen extends GetView<SettingsController> {
                     children: [
                       CircleAvatar(
                         radius: 24,
-                        backgroundImage: AssetImage(AppImageAssets.userProfile),
+                        backgroundImage: AssetImage(AppImages.userProfile),
                       ),
                       SizedBox(width: 10),
                       Column(
@@ -75,28 +73,28 @@ class SettingsScreen extends GetView<SettingsController> {
               // Settings Items (Staggered)
               ...[
                 SettingsItem(
-                  iconPath: AppIconAssets.notifications,
+                  iconPath: AppIcons.notifications,
                   title: "Notification",
                   onTap: controller.onNotificationTap,
                 ),
                 SettingsItem(
-                  iconPath: AppIconAssets.language,
+                  iconPath: AppIcons.language,
                   title: "Language",
                   trailing: const Text("English"),
                   onTap: controller.onLanguageTap,
                 ),
                 SettingsItem(
-                  iconPath: AppIconAssets.privacy,
+                  iconPath: AppIcons.privacy,
                   title: "Privacy",
                   onTap: controller.onPrivacyTap,
                 ),
                 SettingsItem(
-                  iconPath: AppIconAssets.helpCenter,
+                  iconPath: AppIcons.helpCenter,
                   title: "Help Center",
                   onTap: controller.onHelpTap,
                 ),
                 SettingsItem(
-                  iconPath: AppIconAssets.aboutUs,
+                  iconPath: AppIcons.aboutUs,
                   title: "About Us",
                   onTap: controller.onAboutTap,
                 ),

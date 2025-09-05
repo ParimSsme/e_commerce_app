@@ -2,7 +2,7 @@ import 'package:e_commerce_app/app/ui/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../core/app_icon_assets.dart';
+import '../../../core/resources/app_icons.dart';
 import '../../data/models/product_model.dart';
 
 class SearchProductItem extends StatelessWidget {
@@ -42,8 +42,8 @@ class SearchProductItem extends StatelessWidget {
                   },
                   icon: SvgPicture.asset(
                     item.isFavourite
-                        ? AppIconAssets.favouriteFilled
-                        : AppIconAssets.favourite,
+                        ? AppIcons.favouriteFilled
+                        : AppIcons.favourite,
                     width: 24,
                     height: 24,
                   ),
@@ -68,10 +68,8 @@ class SearchProductItem extends StatelessWidget {
                     ],
                   ),
                   IconButton(
-                    onPressed: () {
-                      // TODO: handle add-to-cart
-                    },
-                    icon: SvgPicture.asset(AppIconAssets.plus),
+                    onPressed: () {},
+                    icon: SvgPicture.asset(AppIcons.plus),
                   ),
                 ],
               ),

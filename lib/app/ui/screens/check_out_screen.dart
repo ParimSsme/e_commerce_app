@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/core/app_icon_assets.dart';
+import 'package:e_commerce_app/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -136,7 +136,7 @@ class _DeliveryAddress extends StatelessWidget {
           fillColor: Colors.grey.shade200,
           padding: const EdgeInsets.all(15.0),
           shape: const CircleBorder(),
-          child: SvgPicture.asset(AppIconAssets.location),
+          child: SvgPicture.asset(AppIcons.location),
         ),
         const Column(
           crossAxisAlignment: CrossAxisAlignment.start,

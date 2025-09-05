@@ -2,8 +2,7 @@ import 'package:e_commerce_app/app/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
-import '../../../core/app_image_assets.dart';
+import '../../../core/resources/app_images.dart';
 
 class CarouselSliderItem extends StatelessWidget {
   CarouselSliderItem({super.key});
@@ -58,7 +57,7 @@ class CarouselSliderItem extends StatelessWidget {
                       ],
                     ),
                     Image.asset(
-                      AppImageAssets.sliderBoy,
+                      AppImages.sliderBoy,
                       height: 120,
                       fit: BoxFit.contain,
                     ),

@@ -21,10 +21,10 @@ class SearchController extends GetxController {
     if (query.isEmpty) {
       filteredProducts.assignAll(products);
     } else {
+      final lowerQuery = query.toLowerCase();
       filteredProducts.assignAll(
-        products.where(
-              (p) => p.name.toLowerCase().contains(query.toLowerCase()),
-        ),
+        products.where((p) =>
+        p.name.toLowerCase().contains(lowerQuery)),
       );
     }
   }

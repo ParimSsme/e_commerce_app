@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../core/app_icon_assets.dart';
+import '../../../core/resources/app_icons.dart';
 import '../../data/models/product_model.dart';
 import '../screens/product_detail.dart';
 
@@ -44,7 +44,7 @@ class HomeListItem extends StatelessWidget {
                 child: IconButton(
                   onPressed: () {},
                   icon: SvgPicture.asset(
-                    AppIconAssets.favourite,
+                    AppIcons.favourite,
                     width: 24,
                     height: 24,
                   ),

@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/core/app_icon_assets.dart';
+import 'package:e_commerce_app/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../data/models/product_model.dart';
@@ -17,7 +17,7 @@ class ProductDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🖼️ Hero Image (fade + slide up)
+            /// Hero Image (fade + slide up)
             Hero(
               tag: "product_${product.name}",
               child: Image.asset(
@@ -61,7 +61,7 @@ class ProductDetail extends StatelessWidget {
                   /// Rating (slide from right)
                   Row(
                     children: [
-                      SvgPicture.asset(AppIconAssets.star),
+                      SvgPicture.asset(AppIcons.star),
                       const SizedBox(width: 5),
                       Text("${product.rate} (${product.reviewCount} Reviews)"),
                     ],

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../core/app_icon_assets.dart';
+import '../../core/resources/app_icons.dart';
 
 class PaymentMethod {
   final String name;
@@ -17,9 +17,9 @@ class CheckoutController extends GetxController {
 
   // Payment methods
   var paymentMethods = <PaymentMethod>[
-    PaymentMethod(name: 'Paypal', icon: AppIconAssets.paypal),
-    PaymentMethod(name: 'Credit Card', icon: AppIconAssets.creditCard),
-    PaymentMethod(name: 'Cash', icon: AppIconAssets.cash),
+    PaymentMethod(name: 'Paypal', icon: AppIcons.paypal),
+    PaymentMethod(name: 'Credit Card', icon: AppIcons.creditCard),
+    PaymentMethod(name: 'Cash', icon: AppIcons.cash),
   ].obs;
 
   var selectedPayment = ''.obs;

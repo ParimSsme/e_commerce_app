@@ -1,26 +1,26 @@
 import 'package:get/get.dart';
-import '../../core/app_image_assets.dart';
+import '../../core/resources/app_images.dart';
 import '../data/models/cart_model.dart';
 
 class CartController extends GetxController {
   var carts = <CartModel>[
-    CartModel(
+    const CartModel(
       productName: 'Watch',
-      productImage: AppImageAssets.watch,
+      productImage: AppImages.watch,
       productPrice: 40,
       companyName: 'Rolex',
       productCount: 2,
     ),
-    CartModel(
+    const CartModel(
       productName: 'Airpods',
-      productImage: AppImageAssets.airpods,
+      productImage: AppImages.airpods,
       productPrice: 333,
       companyName: 'Apple',
       productCount: 2,
     ),
-    CartModel(
+    const CartModel(
       productName: 'Hoodie',
-      productImage: AppImageAssets.hoodie,
+      productImage: AppImages.hoodie,
       productPrice: 50,
       companyName: 'Puma',
       productCount: 2,

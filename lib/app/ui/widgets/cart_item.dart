@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../core/app_icon_assets.dart';
+import '../../../core/resources/app_icons.dart';
 import '../../controllers/cart_controller.dart';
 import '../../data/models/cart_model.dart';
 import 'package:get/get.dart';
@@ -61,7 +61,7 @@ class CartItem extends GetView<CartController> {
                 padding: const EdgeInsets.only(right: 10.0, top: 10),
                 child: GestureDetector(
                   onTap: () => controller.removeFromCart(item),
-                  child: SvgPicture.asset(AppIconAssets.delete),
+                  child: SvgPicture.asset(AppIcons.delete),
                 ),
               ),
 
@@ -70,12 +70,12 @@ class CartItem extends GetView<CartController> {
                 children: [
                   IconButton(
                     onPressed: () => controller.decreaseQuantity(item),
-                    icon: SvgPicture.asset(AppIconAssets.minus),
+                    icon: SvgPicture.asset(AppIcons.minus),
                   ),
                   Text(item.productCount.toString().padLeft(2, '0')),
                   IconButton(
                     onPressed: () => controller.increaseQuantity(item),
-                    icon: SvgPicture.asset(AppIconAssets.plus),
+                    icon: SvgPicture.asset(AppIcons.plus),
                   ),
                 ],
               ),

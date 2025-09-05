@@ -1,6 +1,6 @@
 const _basePath = 'assets/icons';
 
-class AppIconAssets {
+class AppIcons {
   static const String notifications = '$_basePath/notifications.svg';
   static const String search = '$_basePath/search.svg';
   static const String favourite = '$_basePath/favourite.svg';

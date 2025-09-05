@@ -1,6 +1,5 @@
-import 'package:e_commerce_app/app/ui/screens/settings_screen.dart';
-import 'package:e_commerce_app/core/app_icon_assets.dart';
-import 'package:e_commerce_app/core/app_image_assets.dart';
+import 'package:e_commerce_app/core/resources/app_icons.dart';
+import 'package:e_commerce_app/core/resources/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../routing/app_routes.dart';
@@ -24,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
               /// User Avatar
               const CircleAvatar(
                 radius: 40,
-                backgroundImage: AssetImage(AppImageAssets.userProfile),
+                backgroundImage: AssetImage(AppImages.userProfile),
               )
                   .animate()
                   .fadeIn(duration: 600.ms)
@@ -52,27 +51,27 @@ class ProfileScreen extends StatelessWidget {
               /// Profile Options (Staggered)
               ...[
                 ProfileOption(
-                  icon: AppIconAssets.profile,
+                  icon: AppIcons.profile,
                   label: "Profile",
                   onTap: () {},
                 ),
                 ProfileOption(
-                  icon: AppIconAssets.setting,
+                  icon: AppIcons.setting,
                   label: "Settings",
                   onTap: () => Get.toNamed(AppRoutes.settings),
                 ),
                 ProfileOption(
-                  icon: AppIconAssets.contact,
+                  icon: AppIcons.contact,
                   label: "Contact",
                   onTap: () {},
                 ),
                 ProfileOption(
-                  icon: AppIconAssets.share,
+                  icon: AppIcons.share,
                   label: "Share App",
                   onTap: () {},
                 ),
                 ProfileOption(
-                  icon: AppIconAssets.help,
+                  icon: AppIcons.help,
                   label: "Help",
                   onTap: () {},
                 ),

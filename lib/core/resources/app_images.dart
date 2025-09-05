@@ -1,6 +1,6 @@
 const _basePath = 'assets/images';
 
-class AppImageAssets {
+class AppImages {
   static const String userProfile = '$_basePath/user_profile.jpg';
   static const String watch = '$_basePath/watch.jpg';
   static const String nikeShoes = '$_basePath/nike_shoes.jpg';

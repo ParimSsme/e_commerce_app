@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../core/app_icon_assets.dart';
+import '../../../core/resources/app_icons.dart';
 import '../../data/models/product_model.dart';
 import '../screens/product_detail.dart';
 
@@ -49,8 +49,8 @@ class ProductListItem extends StatelessWidget {
                   onPressed: onFavouriteToggle,
                   icon: SvgPicture.asset(
                     item.isFavourite
-                        ? AppIconAssets.favouriteFilled
-                        : AppIconAssets.favourite,
+                        ? AppIcons.favouriteFilled
+                        : AppIcons.favourite,
                     width: 24,
                     height: 24,
                   ),
@@ -77,7 +77,7 @@ class ProductListItem extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: SvgPicture.asset(AppIconAssets.plus),
+                    icon: SvgPicture.asset(AppIcons.plus),
                   ),
                 ],
               ),

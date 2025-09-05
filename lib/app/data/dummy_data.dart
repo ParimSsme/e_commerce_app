@@ -1,11 +1,11 @@
-import '../../core/app_image_assets.dart';
+import '../../core/resources/app_images.dart';
 import 'models/product_model.dart';
 
 class DummyData {
   static const List<ProductModel> featuredList = [
     ProductModel(
       name: 'Watch',
-      image: AppImageAssets.watch,
+      image: AppImages.watch,
       price: 40,
       description:
       'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
@@ -20,7 +20,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Nike Shoes',
-      image: AppImageAssets.nikeShoes,
+      image: AppImages.nikeShoes,
       price: 430,
       description:
       'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
@@ -35,7 +35,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Airpods',
-      image: AppImageAssets.airpods,
+      image: AppImages.airpods,
       price: 333,
       description:
       'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
@@ -53,7 +53,7 @@ class DummyData {
   static const List<ProductModel> popularList = [
     ProductModel(
       name: 'LG TV',
-      image: AppImageAssets.LG_TV,
+      image: AppImages.LG_TV,
       price: 330,
       description:
       'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
@@ -68,7 +68,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Hoodie',
-      image: AppImageAssets.hoodie,
+      image: AppImages.hoodie,
       price: 50,
       description:
       'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
@@ -83,7 +83,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Jacket',
-      image: AppImageAssets.jacket,
+      image: AppImages.jacket,
       price: 400,
       description:
       'Culpa aliquam consequuntur veritatis at consequuntur praesentium beatae temporibus nobis. Velit dolorem facilis neque autem. Itaque voluptatem expedita qui eveniet id veritatis eaque. Blanditiis quia placeat nemo. Nobis laudantium nesciunt perspiciatis sit eligendi.',
@@ -99,7 +99,7 @@ class DummyData {
   static const products = [
     ProductModel(
       name: 'Watch',
-      image: AppImageAssets.watch,
+      image: AppImages.watch,
       price: 40,
       description: 'Premium wrist watch with modern design.',
       rate: 4.5,
@@ -113,7 +113,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Nike Shoes',
-      image: AppImageAssets.nikeShoes,
+      image: AppImages.nikeShoes,
       price: 430,
       description: 'Lightweight running shoes for athletes.',
       rate: 4.5,
@@ -128,7 +128,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'LG TV',
-      image: AppImageAssets.LG_TV,
+      image: AppImages.LG_TV,
       price: 330,
       description: 'Smart LED TV with 4K resolution.',
       rate: 4.2,
@@ -138,7 +138,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Airpods',
-      image: AppImageAssets.airpods,
+      image: AppImages.airpods,
       price: 333,
       description: 'Wireless earbuds with noise cancellation.',
       rate: 4.8,
@@ -148,7 +148,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Jacket',
-      image: AppImageAssets.jacket,
+      image: AppImages.jacket,
       price: 50,
       description: 'Warm and stylish winter jacket.',
       rate: 4.0,
@@ -158,7 +158,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'Hoodie',
-      image: AppImageAssets.hoodie,
+      image: AppImages.hoodie,
       price: 400,
       description: 'Casual hoodie for everyday wear.',
       rate: 4.1,
@@ -168,7 +168,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'T-Shirt',
-      image: AppImageAssets.tShirt1,
+      image: AppImages.tShirt1,
       price: 25,
       description: 'Comfortable cotton T-shirt.',
       rate: 4.3,
@@ -178,7 +178,7 @@ class DummyData {
     ),
     ProductModel(
       name: 'T-Shirt',
-      image: AppImageAssets.tShirt2,
+      image: AppImages.tShirt2,
       price: 28,
       description: 'Trendy T-shirt with slim fit.',
       rate: 4.6,
