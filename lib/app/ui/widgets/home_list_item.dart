@@ -37,6 +37,7 @@ class HomeListItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(item.image),
+                    fit: BoxFit.fill
                   ),
                   borderRadius: BorderRadius.circular(13),
                 ),
