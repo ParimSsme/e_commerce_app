@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import '../../core/resources/app_icons.dart';
+import '../routing/app_routes.dart';
 
 class PaymentMethod {
   final String name;
@@ -32,11 +33,6 @@ class CheckoutController extends GetxController {
     // Handle adding new payment method
   }
 
-  void onCheckout() {
-    if (selectedPayment.isEmpty) {
-      Get.snackbar('Error', 'Please select a payment method');
-    } else {
-      Get.snackbar('Success', 'Order placed with $selectedPayment');
-    }
-  }
+  void onCheckout() => Get.toNamed(AppRoutes.orders);
+
 }

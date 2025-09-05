@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/app/data/models/order_model.dart';
+
 import '../../core/resources/app_images.dart';
 import 'models/product_model.dart';
 
@@ -185,6 +187,62 @@ class DummyData {
       reviewCount: 20,
       sizes: [],
       isFavourite: true,
+    ),
+  ];
+
+  static const orders = <OrderModel>[
+    OrderModel(
+      productName: 'Watch',
+      productImage: AppImages.watch,
+      productPrice: 40,
+      companyName: 'Rolex',
+    ),
+    OrderModel(
+      productName: 'Airpods',
+      productImage: AppImages.airpods,
+      productPrice: 333,
+      companyName: 'Apple',
+    ),
+    OrderModel(
+      productName: 'Hoodie',
+      productImage: AppImages.hoodie,
+      productPrice: 50,
+      companyName: 'Puma',
+    ),
+    OrderModel(
+      productName: 'Nike Shoes',
+      productImage: AppImages.nikeShoes,
+      productPrice: 430,
+      companyName: 'Nike',
+      status: OrderStatus.completed,
+    ),
+    OrderModel(
+      productName: 'Airpods',
+      productImage: AppImages.airpods,
+      productPrice: 333,
+      companyName: 'Samsung Galaxy Buds',
+      status: OrderStatus.completed,
+    ),
+    OrderModel(
+      productName: 'Jacket',
+      productImage: AppImages.jacket,
+      productPrice: 50,
+      companyName: 'North Face',
+      status: OrderStatus.cancel,
+    ),
+    OrderModel(
+      productName: 'Hoodie',
+      productImage: AppImages.hoodie,
+      productPrice: 400,
+      companyName: 'Adidas',
+      status: OrderStatus.cancel,
+    ),
+    OrderModel(
+      productName: 'T-Shirt',
+      productImage: AppImages.tShirt1,
+      productPrice: 25,
+      companyName: 'Nike',
+      status: OrderStatus.cancel,
     ),
   ];
 

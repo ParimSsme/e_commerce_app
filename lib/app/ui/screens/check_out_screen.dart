@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/app/ui/widgets/rounded_text_button.dart';
 import 'package:e_commerce_app/core/resources/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -109,10 +110,10 @@ class CheckOutScreen extends GetView<CheckoutController> {
 
               const Spacer(),
 
-              // ✅ Confirm Checkout Button
-              TextButton(
+              /// Confirm Checkout Button
+              RoundedTextButton(
                 onPressed: controller.onCheckout,
-                child: const Text('Confirm Order'),
+                text: 'Confirm Order',
               )
                   .animate(delay: 1600.ms)
                   .fadeIn(duration: 600.ms)
