@@ -6,6 +6,7 @@ import 'package:e_commerce_app/app/bindings/products_binding.dart';
 import 'package:e_commerce_app/app/bindings/search_binding.dart';
 import 'package:e_commerce_app/app/bindings/settings_binding.dart';
 import 'package:e_commerce_app/app/ui/screens/check_out_screen.dart';
+import 'package:e_commerce_app/app/ui/screens/filters_screen.dart';
 import 'package:e_commerce_app/app/ui/screens/home_screen.dart';
 import 'package:e_commerce_app/app/ui/screens/orders_screen.dart';
 import 'package:e_commerce_app/app/ui/screens/product_detail.dart';
@@ -51,6 +52,10 @@ class AppPages {
       name: AppRoutes.orders,
       page: () => const OrdersScreen(),
       binding: OrdersBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.filters,
+      page: () => const FiltersScreen(),
     ),
     GetPage(
       name: AppRoutes.products,

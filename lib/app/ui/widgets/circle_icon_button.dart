@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../theme/app_colors.dart';
 
 class CircleIconButton extends StatelessWidget {
@@ -32,7 +31,7 @@ class CircleIconButton extends StatelessWidget {
           child: Icon(
             icon,
             color: iconColor,
-            size: size * 0.5, // icon scales relative to button size
+            size: size - 5, // icon scales relative to button size
           ),
         ),
       ),

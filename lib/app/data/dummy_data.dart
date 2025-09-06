@@ -188,6 +188,51 @@ class DummyData {
       sizes: [],
       isFavourite: true,
     ),
+    ProductModel(
+      name: 'Nike Shoes',
+      image: AppImages.nikeShoe3,
+      price: 530,
+      description: 'Lightweight running shoes for athletes.',
+      rate: 4.5,
+      reviewCount: 18,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: true),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
+      isFavourite: false,
+    ),
+    ProductModel(
+      name: 'Nike Shoes',
+      image: AppImages.nikeShoe1,
+      price: 430,
+      description: 'Lightweight running shoes for athletes.',
+      rate: 4.5,
+      reviewCount: 18,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: true),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
+      isFavourite: true,
+    ),
+    ProductModel(
+      name: 'Nike Shoes',
+      image: AppImages.nikeShoe2,
+      price: 600,
+      description: 'Lightweight running shoes for athletes.',
+      rate: 4.5,
+      reviewCount: 18,
+      sizes: [
+        SizeModel(size: 8, isAvailable: true),
+        SizeModel(size: 10, isAvailable: true),
+        SizeModel(size: 38, isAvailable: true),
+        SizeModel(size: 40, isAvailable: false),
+      ],
+      isFavourite: false,
+    ),
   ];
 
   static const orders = <OrderModel>[
