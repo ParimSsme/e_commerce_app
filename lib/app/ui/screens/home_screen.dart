@@ -1,7 +1,13 @@
-import 'package:e_commerce_app/app/ui/screens/products_screen.dart';
+import 'package:e_commerce_app/app/routing/app_routes.dart';
+import 'package:e_commerce_app/app/ui/theme/app_spacing.dart';
+import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
+import 'package:e_commerce_app/app/ui/widgets/circle_icon_button.dart';
+import 'package:e_commerce_app/app/ui/widgets/search_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/resources/app_images.dart';
 import '../../controllers/home_controller.dart';
+import '../theme/app_colors.dart';
 import '../widgets/carousel_slider_item.dart';
 import '../widgets/home_list_item.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -11,11 +17,45 @@ class HomeScreen extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        title: const Padding(
+          padding: EdgeInsets.only(left: 8.0),
+          child: Row(
+            spacing: 10,
+            children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage(AppImages.userProfile),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Hello!',
+                    style: AppTextStyles.bodySmall,
+                  ),
+                  Text(
+                    'John William',
+                    style: AppTextStyles.headlineSmall,
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: CircleIconButton(
+              icon: Icons.notifications,
+              onPressed: () {},
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,26 +63,31 @@ class HomeScreen extends GetView<HomeController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// 1. Carousel
+              SearchTextField(controller: controller.searchTextController),
+
+              const SizedBox(height: AppSpacing.lg),
+
+              /// Carousel
               CarouselSliderItem()
                   .animate()
                   .fadeIn(duration: 600.ms)
                   .slideY(begin: -0.2, end: 0),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: AppSpacing.lg),
 
-              /// 2. Featured Header
+              /// Featured Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Featured", style: textTheme.titleMedium),
+                  const Text("Featured", style: AppTextStyles.headingMedium),
                   TextButton(
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const ProductsScreen(),
+                    onPressed: () => Get.toNamed(AppRoutes.products),
+                    child: Text(
+                      "See All",
+                      style: AppTextStyles.labelMedium.copyWith(
+                        color: AppColors.primary,
                       ),
                     ),
-                    child: const Text("See All"),
                   ),
                 ],
               )
@@ -50,9 +95,9 @@ class HomeScreen extends GetView<HomeController> {
                   .fadeIn(duration: 500.ms)
                   .slideX(begin: -0.2, end: 0),
 
-              /// 3. Featured List
+              /// Featured List
               SizedBox(
-                height: 150,
+                height: 155,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: controller.featuredList.length,
@@ -62,20 +107,26 @@ class HomeScreen extends GetView<HomeController> {
                   )
                       .animate(delay: (500 + i * 150).ms) // sequential per item
                       .fadeIn(duration: 400.ms)
-                      .scale(begin: const Offset(0.8, 0.8), end: Offset(1, 1)),
+                      .scale(begin: const Offset(0.8, 0.8), end: const Offset(1, 1)),
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: AppSpacing.lg),
 
-              /// 4. Popular Header
+              /// Popular Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Most Popular", style: textTheme.titleMedium),
+                  const Text("Most Popular",
+                      style: AppTextStyles.headingMedium),
                   TextButton(
-                    onPressed: () {},
-                    child: const Text("See All"),
+                    onPressed: () => Get.toNamed(AppRoutes.products),
+                    child: Text(
+                      "See All",
+                      style: AppTextStyles.labelMedium.copyWith(
+                        color: AppColors.primary,
+                      ),
+                    ),
                   ),
                 ],
               )
@@ -85,7 +136,7 @@ class HomeScreen extends GetView<HomeController> {
 
               /// 5. Popular List
               SizedBox(
-                height: 150,
+                height: 155,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: controller.popularList.length,
@@ -93,9 +144,10 @@ class HomeScreen extends GetView<HomeController> {
                   itemBuilder: (_, i) => HomeListItem(
                     item: controller.popularList[i],
                   )
-                      .animate(delay: (1200 + i * 150).ms) // sequential per item
+                      .animate(
+                          delay: (1200 + i * 150).ms) // sequential per item
                       .fadeIn(duration: 400.ms)
-                      .scale(begin: const Offset(0.8, 0.8), end: Offset(1, 1)),
+                      .scale(begin: const Offset(0.8, 0.8), end: const Offset(1, 1)),
                 ),
               ),
             ],

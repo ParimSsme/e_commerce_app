@@ -1,8 +1,11 @@
+import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../../../core/resources/app_icons.dart';
 import '../../data/models/product_model.dart';
-import '../screens/product_detail.dart';
+import '../../routing/app_routes.dart';
+import '../theme/app_colors.dart';
 
 class HomeListItem extends StatelessWidget {
   final ProductModel item;
@@ -13,13 +16,10 @@ class HomeListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => ProductDetail(product: item),
-        ),
+      onTap: () => Get.toNamed(
+        AppRoutes.productDetail,
+        arguments: item,
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -36,9 +36,7 @@ class HomeListItem extends StatelessWidget {
                 alignment: Alignment.topRight,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(item.image),
-                    fit: BoxFit.fill
-                  ),
+                      image: AssetImage(item.image), fit: BoxFit.fill),
                   borderRadius: BorderRadius.circular(13),
                 ),
                 child: IconButton(
@@ -58,12 +56,15 @@ class HomeListItem extends StatelessWidget {
                 children: [
                   Text(
                     item.name,
-                    style: textTheme.titleSmall,
+                    style: AppTextStyles.headlineSmall.copyWith(
+                      fontSize: 16,
+                    ),
                   ),
                   Text(
                     '\$${item.price}',
-                    style: textTheme.bodyMedium?.copyWith(
-                      color: const Color(0xff6055d8),
+                    style: AppTextStyles.headlineSmall.copyWith(
+                      color: AppColors.primary,
+                      fontSize: 14,
                     ),
                   ),
                 ],
