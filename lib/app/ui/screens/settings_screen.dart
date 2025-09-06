@@ -1,9 +1,9 @@
+import 'package:e_commerce_app/app/ui/widgets/action_tile.dart';
 import 'package:flutter/material.dart';
 import '../../../core/resources/app_icons.dart';
 import '../../../core/resources/app_images.dart';
 import 'package:get/get.dart';
 import '../../controllers/settings_controller.dart';
-import '../widgets/settings_item.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class SettingsScreen extends GetView<SettingsController> {
@@ -70,30 +70,29 @@ class SettingsScreen extends GetView<SettingsController> {
 
               const SizedBox(height: 10),
 
-              // Settings Items (Staggered)
               ...[
-                SettingsItem(
+                ActionTile(
                   iconPath: AppIcons.notifications,
                   title: "Notification",
                   onTap: controller.onNotificationTap,
                 ),
-                SettingsItem(
+                ActionTile(
                   iconPath: AppIcons.language,
                   title: "Language",
                   trailing: const Text("English"),
                   onTap: controller.onLanguageTap,
                 ),
-                SettingsItem(
+                ActionTile(
                   iconPath: AppIcons.privacy,
                   title: "Privacy",
                   onTap: controller.onPrivacyTap,
                 ),
-                SettingsItem(
+                ActionTile(
                   iconPath: AppIcons.helpCenter,
                   title: "Help Center",
                   onTap: controller.onHelpTap,
                 ),
-                SettingsItem(
+                ActionTile(
                   iconPath: AppIcons.aboutUs,
                   title: "About Us",
                   onTap: controller.onAboutTap,

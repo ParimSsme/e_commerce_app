@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -27,6 +28,7 @@ class ActionTile extends StatelessWidget {
         padding: const EdgeInsets.all(13),
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
+          spacing: 10,
           children: [
             SvgPicture.asset(
               iconPath,
@@ -35,17 +37,13 @@ class ActionTile extends StatelessWidget {
                 BlendMode.srcATop,
               ),
             ),
-            const SizedBox(width: 10),
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+              style: AppTextStyles.headlineSmall,
             ),
             const Spacer(),
             if (trailing != null) trailing!,
-            const Icon(Icons.arrow_forward_ios_rounded, size: 18),
+            const Icon(Icons.arrow_forward_ios_rounded, size: 25),
           ],
         ),
       ),
