@@ -1,9 +1,10 @@
+import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:e_commerce_app/core/resources/app_icons.dart';
 import 'package:e_commerce_app/core/resources/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../routing/app_routes.dart';
-import '../widgets/profile_option.dart';
+import '../widgets/action_tile.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -11,8 +12,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -24,15 +23,15 @@ class ProfileScreen extends StatelessWidget {
               const CircleAvatar(
                 radius: 40,
                 backgroundImage: AssetImage(AppImages.userProfile),
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms)
-                  .scale(begin: const Offset(0.6, 0.6), end: Offset(1, 1), curve: Curves.easeOutBack),
+              ).animate().fadeIn(duration: 600.ms).scale(
+                  begin: const Offset(0.6, 0.6),
+                  end: const Offset(1, 1),
+                  curve: Curves.easeOutBack),
 
               const SizedBox(height: 10),
 
               /// Name
-              Text("Mark Adam", style: textTheme.titleMedium)
+              const Text("Mark Adam", style: AppTextStyles.headingLarge)
                   .animate(delay: 200.ms)
                   .fadeIn(duration: 500.ms)
                   .slideY(begin: -0.2, end: 0),
@@ -40,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
               /// Email
               Text(
                 "Sunny_Koelpin45@hotmail.com",
-                style: textTheme.bodySmall?.copyWith(color: Colors.grey),
+                style: AppTextStyles.displayMedium.copyWith(color: Colors.grey),
               )
                   .animate(delay: 400.ms)
                   .fadeIn(duration: 500.ms)
@@ -50,33 +49,34 @@ class ProfileScreen extends StatelessWidget {
 
               /// Profile Options (Staggered)
               ...[
-                ProfileOption(
-                  icon: AppIcons.profile,
-                  label: "Profile",
+                ActionTile(
+                  iconPath: AppIcons.profile,
+                  title: "Profile",
                   onTap: () {},
                 ),
-                ProfileOption(
-                  icon: AppIcons.setting,
-                  label: "Settings",
+                ActionTile(
+                  iconPath: AppIcons.setting,
+                  title: "Settings",
                   onTap: () => Get.toNamed(AppRoutes.settings),
                 ),
-                ProfileOption(
-                  icon: AppIcons.contact,
-                  label: "Contact",
+                ActionTile(
+                  iconPath: AppIcons.contact,
+                  title: "Contact",
                   onTap: () {},
                 ),
-                ProfileOption(
-                  icon: AppIcons.share,
-                  label: "Share App",
+                ActionTile(
+                  iconPath: AppIcons.share,
+                  title: "Share App",
                   onTap: () {},
                 ),
-                ProfileOption(
-                  icon: AppIcons.help,
-                  label: "Help",
+                ActionTile(
+                  iconPath: AppIcons.help,
+                  title: "Help",
                   onTap: () {},
                 ),
               ]
-                  .animate(interval: 150.ms, delay: 600.ms) // stagger each option
+                  .animate(
+                      interval: 150.ms, delay: 600.ms) // stagger each option
                   .fadeIn(duration: 400.ms)
                   .slideX(begin: -0.2, end: 0),
 
@@ -85,15 +85,16 @@ class ProfileScreen extends StatelessWidget {
               /// Sign Out Button
               TextButton(
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   "Sign Out",
-                  style: TextStyle(color: Colors.red),
+                  style: AppTextStyles.headlineSmall.copyWith(
+                    color: Colors.red,
+                  ),
                 ),
-              )
-                  .animate(delay: 1200.ms)
-                  .fadeIn(duration: 500.ms)
-                  .scale(begin: const Offset(0.8, 0.8), end: Offset(1, 1))
-                  .shake(hz: 3, curve: Curves.easeInOut),
+              ).animate(delay: 1200.ms).fadeIn(duration: 500.ms).scale(
+                    begin: const Offset(0.8, 0.8),
+                    end: const Offset(1, 1),
+                  ),
             ],
           ),
         ),
