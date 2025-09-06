@@ -4,6 +4,7 @@ import '../theme/app_colors.dart';
 class CircleIconButton extends StatelessWidget {
   final IconData icon;
   final double size;
+  final double iconSize;
   final Color backgroundColor;
   final Color iconColor;
   final VoidCallback onPressed;
@@ -13,6 +14,7 @@ class CircleIconButton extends StatelessWidget {
     required this.icon,
     required this.onPressed,
     this.size = 48.0,
+    this.iconSize = 35,
     this.backgroundColor = AppColors.secondary,
     this.iconColor = AppColors.grey,
   });
@@ -31,7 +33,7 @@ class CircleIconButton extends StatelessWidget {
           child: Icon(
             icon,
             color: iconColor,
-            size: size - 5, // icon scales relative to button size
+            size: iconSize,
           ),
         ),
       ),

@@ -75,6 +75,7 @@ class SearchProductItem extends StatelessWidget {
                   ),
                   CircleIconButton(
                     size: 30,
+                    iconSize: 30,
                     backgroundColor: AppColors.primary,
                     onPressed: () {},
                     icon: Icons.add,

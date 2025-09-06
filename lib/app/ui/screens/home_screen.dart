@@ -51,6 +51,8 @@ class HomeScreen extends GetView<HomeController> {
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: CircleIconButton(
+              size: 40,
+              iconSize: 25,
               icon: Icons.notifications,
               onPressed: () {},
             ),
