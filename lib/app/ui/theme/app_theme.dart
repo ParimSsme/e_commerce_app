@@ -13,6 +13,7 @@ class AppTheme {
       foregroundColor: AppColors.textPrimary,
       elevation: 0,
       centerTitle: true,
+      titleTextStyle: AppTextStyles.headingMedium
     ),
 
     textTheme: const TextTheme(
@@ -35,6 +36,7 @@ class AppTheme {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
+        padding: const EdgeInsets.symmetric(vertical: 5)
       ),
     ),
 

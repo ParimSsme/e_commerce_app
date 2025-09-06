@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_text_styles.dart';
 
 class OrderSummary extends StatelessWidget {
   final int itemCount;
@@ -30,8 +32,9 @@ class OrderSummary extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 5,
               children: [
-                const Text('Order Summary'),
+                const Text('Order Summary', style: AppTextStyles.headlineSmall),
                 _buildRow('Items', '$itemCount'),
                 _buildRow('Subtotal', '\$$subtotal'),
                 _buildRow('Discount', '\$$discount'),
@@ -42,7 +45,16 @@ class OrderSummary extends StatelessWidget {
           const Divider(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: _buildRow('Total', '\$$total'),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Total',
+                  style: AppTextStyles.headlineSmall,
+                ),
+                Text('\$$total', style: AppTextStyles.headlineSmall),
+              ],
+            ),
           ),
         ],
       ),
@@ -53,8 +65,16 @@ class OrderSummary extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title),
-        Text(value),
+        Text(
+          title,
+          style: AppTextStyles.displayLarge,
+        ),
+        Text(
+          value,
+          style: AppTextStyles.headlineSmall.copyWith(
+            color: AppColors.textSecondary,
+          ),
+        ),
       ],
     );
   }

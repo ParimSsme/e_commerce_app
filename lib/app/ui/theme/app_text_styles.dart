@@ -20,6 +20,12 @@ class AppTextStyles {
     color: AppColors.textPrimary,
   );
 
+  static const displayLarge = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    color: AppColors.textSecondary,
+  );
+
   static const displayMedium = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
