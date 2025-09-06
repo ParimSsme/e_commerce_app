@@ -2,6 +2,8 @@ import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../theme/app_colors.dart';
+
 class ActionTile extends StatelessWidget {
   final String iconPath;
   final String title;
@@ -22,7 +24,7 @@ class ActionTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey.shade300,
+          color: AppColors.secondary,
           borderRadius: BorderRadius.circular(10),
         ),
         padding: const EdgeInsets.all(13),

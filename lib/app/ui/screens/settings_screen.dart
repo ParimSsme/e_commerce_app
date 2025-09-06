@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/app/ui/theme/app_spacing.dart';
 import 'package:e_commerce_app/app/ui/widgets/action_tile.dart';
 import 'package:flutter/material.dart';
 import '../../../core/resources/app_icons.dart';
@@ -5,6 +6,7 @@ import '../../../core/resources/app_images.dart';
 import 'package:get/get.dart';
 import '../../controllers/settings_controller.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../theme/app_text_styles.dart';
 
 class SettingsScreen extends GetView<SettingsController> {
   const SettingsScreen({super.key});
@@ -24,8 +26,17 @@ class SettingsScreen extends GetView<SettingsController> {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 2,
             children: [
-              // Profile Header
+              const Text(
+                'Account',
+                style: AppTextStyles.headlineSmall,
+              )
+                  .animate(delay: 500.ms)
+                  .fadeIn(duration: 500.ms)
+                  .slideX(begin: -0.2, end: 0),
+
+              /// Profile Header
               GestureDetector(
                 onTap: controller.onProfileTap,
                 child: Container(
@@ -35,40 +46,48 @@ class SettingsScreen extends GetView<SettingsController> {
                   ),
                   padding: const EdgeInsets.fromLTRB(0, 3, 13, 3),
                   margin: const EdgeInsets.symmetric(vertical: 8),
-                  child: const Row(
+                  child: Row(
+                    spacing: 10,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 24,
                         backgroundImage: AssetImage(AppImages.userProfile),
                       ),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Mark Adam'),
-                          Text('Sunny_Koelpin45@hotmail.com'),
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Mark Adam',
+                                style: AppTextStyles.headlineSmall),
+                            Text('Sunny_Koelpin45@hotmail.com',
+                                style: AppTextStyles.displayMedium.copyWith(
+                                  fontSize: 14,
+                                )),
+                          ],
+                        ),
                       ),
-                      Spacer(),
-                      Icon(Icons.arrow_forward_ios_rounded),
+                      const Icon(Icons.arrow_forward_ios_rounded),
                     ],
                   ),
                 ),
+              ).animate(delay: 200.ms).fadeIn(duration: 600.ms).scale(
+                  begin: const Offset(0.85, 0.85),
+                  end: const Offset(1, 1),
+                  curve: Curves.easeOutBack),
+
+              const SizedBox(height: AppSpacing.md),
+
+              const Divider().animate(delay: 400.ms).fadeIn(duration: 500.ms),
+
+              const SizedBox(height: AppSpacing.md),
+
+              const Text(
+                'Settings',
+                style: AppTextStyles.headlineSmall,
               )
-                  .animate(delay: 200.ms)
-                  .fadeIn(duration: 600.ms)
-                  .scale(begin: const Offset(0.85, 0.85), end: Offset(1, 1), curve: Curves.easeOutBack),
-
-              const Divider()
-                  .animate(delay: 400.ms)
-                  .fadeIn(duration: 500.ms),
-
-              const Text('Settings')
                   .animate(delay: 500.ms)
                   .fadeIn(duration: 500.ms)
                   .slideX(begin: -0.2, end: 0),
-
-              const SizedBox(height: 10),
 
               ...[
                 ActionTile(
@@ -108,4 +127,3 @@ class SettingsScreen extends GetView<SettingsController> {
     );
   }
 }
-
