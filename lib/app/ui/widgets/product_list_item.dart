@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import '../../../core/resources/app_icons.dart';
 import '../../data/models/product_model.dart';
 import '../screens/product_detail.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_text_styles.dart';
+import 'circle_icon_button.dart';
 
 class ProductListItem extends StatelessWidget {
   final ProductModel item;
@@ -17,7 +20,6 @@ class ProductListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
 
     return GestureDetector(
       onTap: () => Get.to(
@@ -65,19 +67,28 @@ class ProductListItem extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(item.name, style: textTheme.titleSmall),
+                      Text(
+                        item.name,
+                        style: AppTextStyles.headlineSmall.copyWith(
+                          fontSize: 16,
+                        ),
+                      ),
                       Text(
                         '\$${item.price}',
-                        style: textTheme.bodyMedium?.copyWith(
-                          color: const Color(0xff6055d8),
-                          fontWeight: FontWeight.bold,
+                        style: AppTextStyles.headlineSmall.copyWith(
+                          color: AppColors.primary,
+                          fontSize: 14,
                         ),
                       ),
                     ],
                   ),
-                  IconButton(
+                  CircleIconButton(
+                    size: 25,
+                    iconSize: 25,
+                    backgroundColor: AppColors.primary,
                     onPressed: () {},
-                    icon: SvgPicture.asset(AppIcons.plus),
+                    icon: Icons.add,
+                    iconColor: AppColors.onPrimary,
                   ),
                 ],
               ),
