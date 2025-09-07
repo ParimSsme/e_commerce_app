@@ -1,8 +1,12 @@
+import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
+
+import '../theme/app_colors.dart';
 
 class RangeSelector extends StatefulWidget {
   final double min;
   final double max;
+  final String title;
   final RangeValues initialRange;
   final ValueChanged<RangeValues>? onChanged;
 
@@ -10,6 +14,7 @@ class RangeSelector extends StatefulWidget {
     super.key,
     required this.min,
     required this.max,
+    this.title = '',
     required this.initialRange,
     this.onChanged,
   });
@@ -32,11 +37,18 @@ class _RangeSelectorState extends State<RangeSelector> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(widget.title, style: AppTextStyles.headlineSmall),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("\$ ${_currentRange.start.toStringAsFixed(0)}"),
-            Text("\$ ${_currentRange.end.toStringAsFixed(0)}"),
+            Text(
+              "\$ ${_currentRange.start.toStringAsFixed(0)}",
+              style: AppTextStyles.displayLarge
+            ),
+            Text(
+              "\$ ${_currentRange.end.toStringAsFixed(0)}",
+              style: AppTextStyles.displayLarge,
+            ),
           ],
         ),
         RangeSlider(

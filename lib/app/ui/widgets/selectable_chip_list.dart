@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
 
 class SelectableChipList extends StatefulWidget {
   final String? title; // ✅ New title parameter
@@ -61,13 +63,17 @@ class _SelectableChipListState extends State<SelectableChipList> {
                 child: ChoiceChip(
                   label: Center(child: Text(option)),
                   selected: isSelected,
-                  selectedColor: Colors.deepPurple.shade200,
+                  selectedColor: AppColors.primary,
                   backgroundColor: Colors.grey.shade200,
                   labelStyle: TextStyle(
                     color: isSelected ? Colors.white : Colors.black,
                   ),
                   onSelected: (_) => _onChipTapped(option),
                   showCheckmark: false,
+                  side: BorderSide.none,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             );
@@ -80,15 +86,9 @@ class _SelectableChipListState extends State<SelectableChipList> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.title != null) ...[
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8.0, left: 4.0),
-            child: Text(
-              widget.title!,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          Text(
+            widget.title!,
+            style: AppTextStyles.headlineSmall,
           ),
         ],
         ...rows,
