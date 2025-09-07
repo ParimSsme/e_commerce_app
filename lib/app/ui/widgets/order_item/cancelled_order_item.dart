@@ -1,7 +1,9 @@
 import 'package:e_commerce_app/app/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 
-import '../rounded_text_button.dart';
+import '../../theme/app_colors.dart';
+import '../../theme/app_text_styles.dart';
+import '../rounded_button.dart';
 
 class CancelledOrderItem extends StatelessWidget {
   final OrderModel item;
@@ -17,6 +19,7 @@ class CancelledOrderItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -41,15 +44,26 @@ class CancelledOrderItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(item.productName),
+              Text(
+                item.productName,
+                style: AppTextStyles.headlineSmall.copyWith(
+                  fontSize: 16,
+                ),
+              ),
               Text(item.companyName),
-              Text('\$${item.productPrice}'),
+              Text(
+                '\$${item.productPrice}',
+                style: AppTextStyles.headlineSmall.copyWith(
+                  color: AppColors.primary,
+                  fontSize: 14,
+                ),
+              ),
             ],
           ),
 
           const Spacer(),
 
-          RoundedTextButton(onPressed: (){}, text: 'Order', padding: const EdgeInsets.symmetric(horizontal: 15),),
+          // RoundedTextButton(onPressed: (){}, text: 'Order', padding: const EdgeInsets.symmetric(horizontal: 15),),
         ],
       ),
     );

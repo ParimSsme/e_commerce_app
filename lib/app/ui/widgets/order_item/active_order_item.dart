@@ -1,6 +1,9 @@
 import 'package:e_commerce_app/app/data/models/order_model.dart';
-import 'package:e_commerce_app/app/ui/widgets/rounded_text_button.dart';
+import 'package:e_commerce_app/app/ui/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../theme/app_colors.dart';
+import '../../theme/app_text_styles.dart';
 
 class ActiveOrderItem extends StatelessWidget {
   final OrderModel item;
@@ -41,15 +44,34 @@ class ActiveOrderItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(item.productName),
+              Text(
+                item.productName,
+                style: AppTextStyles.headlineSmall.copyWith(
+                  fontSize: 16,
+                ),
+              ),
               Text(item.companyName),
-              Text('\$${item.productPrice}'),
+              Text(
+                '\$${item.productPrice}',
+                style: AppTextStyles.headlineSmall.copyWith(
+                  color: AppColors.primary,
+                  fontSize: 14,
+                ),
+              ),
             ],
           ),
 
           const Spacer(),
 
-          RoundedTextButton(onPressed: (){}, text: 'Track Order', padding: const EdgeInsets.symmetric(horizontal: 15),),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              'Track Order',
+              style: AppTextStyles.displayMedium.copyWith(
+                color: AppColors.onPrimary,
+              ),
+            ),
+          ),
         ],
       ),
     );

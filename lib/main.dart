@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'app/routing/app_pages.dart';
 import 'app/routing/app_routes.dart';
 import 'package:get/get.dart';
+import 'app/ui/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.tabs,
       getPages: AppPages.pages,
+      theme: AppTheme.lightTheme,
     );
   }
 }

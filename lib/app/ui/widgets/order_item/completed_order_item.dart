@@ -1,6 +1,9 @@
 import 'package:e_commerce_app/app/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../theme/app_colors.dart';
+import '../../theme/app_text_styles.dart';
+
 class CompletedOrderItem extends StatelessWidget {
   final OrderModel item;
 
@@ -15,6 +18,7 @@ class CompletedOrderItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -39,9 +43,20 @@ class CompletedOrderItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(item.productName),
+              Text(
+                item.productName,
+                style: AppTextStyles.headlineSmall.copyWith(
+                  fontSize: 16,
+                ),
+              ),
               Text(item.companyName),
-              Text('\$${item.productPrice}'),
+              Text(
+                '\$${item.productPrice}',
+                style: AppTextStyles.headlineSmall.copyWith(
+                  color: AppColors.primary,
+                  fontSize: 14,
+                ),
+              ),
             ],
           ),
         ],

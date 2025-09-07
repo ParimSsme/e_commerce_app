@@ -36,7 +36,7 @@ class AppTheme {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 5)
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10)
       ),
     ),
 
