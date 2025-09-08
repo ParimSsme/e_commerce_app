@@ -1,16 +1,11 @@
-# e_commerce_app
+### Figma Design
 
-A new Flutter project.
+A huge thanks to the designer for the beautiful design! You can view the design in Figma here:
 
-## Getting Started
+[View Figma Design]([https://www.figma.com/design/ZlCnIyw4OQDppahnEUfMog/Furniture-Shopping---Minimal-UI-Kit-(Community)?node-id=1-32&node-type=canvas&t=k8wg4tXztIkmCPyo-0](https://www.figma.com/design/hznMAcMmv7TyQca9wJWyam/e-commerce-app--Community-?node-id=0-1&p=f&t=Z8pH2RLRMN3uGe6q-0))
 
-This project is a starting point for a Flutter application.
+This design was found publicly, and I appreciate the work that went into it. Thank you to the creator for sharing it!
 
-A few resources to get you started if this is your first Flutter project:
+# App Screens
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](https://github.com/ParimSsme/e_commerce_app/blob/main/preview.gif)
