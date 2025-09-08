@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 
 class SelectableChipList extends StatefulWidget {
-  final String? title; // ✅ New title parameter
+  final String? title;
   final List<String> options;
   final List<String> selectedItems;
   final ValueChanged<List<String>>? onSelectionChanged;

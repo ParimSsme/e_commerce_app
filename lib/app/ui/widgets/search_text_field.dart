@@ -43,7 +43,7 @@ class SearchTextField extends StatelessWidget {
                         backgroundColor: AppColors.black,
                         child: Icon(
                           Icons.close,
-                          size: 18, // smaller icon
+                          size: 18,
                           color: Colors.white,
                         ),
                       ),

@@ -69,7 +69,7 @@ class _CustomRadio extends StatelessWidget {
         height: 24,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: AppColors.secondary, // unselected background
+          color: AppColors.secondary,
         ),
         child: isSelected
             ? const Icon(Icons.check, size: 20, color: AppColors.primary)

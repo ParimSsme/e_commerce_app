@@ -1,8 +1,6 @@
 import 'package:e_commerce_app/app/ui/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/app_colors.dart';
-
 class RangeSelector extends StatefulWidget {
   final double min;
   final double max;

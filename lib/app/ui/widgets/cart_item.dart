@@ -6,7 +6,6 @@ import '../../../core/resources/app_icons.dart';
 import '../../controllers/cart_controller.dart';
 import '../../data/models/cart_model.dart';
 import 'package:get/get.dart';
-
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 
@@ -81,7 +80,7 @@ class CartItem extends GetView<CartController> {
                 ),
               ),
 
-              // Quantity Selector
+              /// Quantity Selector
               Row(
                 spacing: 10,
                 children: [
