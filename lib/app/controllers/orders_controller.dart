@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/app/data/dummy_data.dart';
 import 'package:get/get.dart';
-
 import '../data/models/order_model.dart';
 
 class OrdersController extends GetxController {

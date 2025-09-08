@@ -16,7 +16,7 @@ class CheckoutController extends GetxController {
 
   double get total => subtotal.value - discount.value + deliveryCharge.value;
 
-  // Payment methods
+  /// Payment methods
   var paymentMethods = <PaymentMethod>[
     PaymentMethod(name: 'Paypal', icon: AppIcons.paypal),
     PaymentMethod(name: 'Credit Card', icon: AppIcons.creditCard),
@@ -29,9 +29,7 @@ class CheckoutController extends GetxController {
     selectedPayment.value = method;
   }
 
-  void addPaymentMethod() {
-    // Handle adding new payment method
-  }
+  void addPaymentMethod() {}
 
   void onCheckout() => Get.toNamed(AppRoutes.orders);
 

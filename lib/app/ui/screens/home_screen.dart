@@ -93,7 +93,7 @@ class HomeScreen extends GetView<HomeController> {
                   ),
                 ],
               )
-                  .animate(delay: 300.ms) // appears after carousel
+                  .animate(delay: 300.ms) /// appears after carousel
                   .fadeIn(duration: 500.ms)
                   .slideX(begin: -0.2, end: 0),
 
@@ -107,7 +107,7 @@ class HomeScreen extends GetView<HomeController> {
                   itemBuilder: (_, i) => HomeListItem(
                     item: controller.featuredList[i],
                   )
-                      .animate(delay: (500 + i * 150).ms) // sequential per item
+                      .animate(delay: (500 + i * 150).ms) /// sequential per item
                       .fadeIn(duration: 400.ms)
                       .scale(begin: const Offset(0.8, 0.8), end: const Offset(1, 1)),
                 ),
@@ -132,7 +132,7 @@ class HomeScreen extends GetView<HomeController> {
                   ),
                 ],
               )
-                  .animate(delay: 1000.ms) // appears after featured section
+                  .animate(delay: 1000.ms)
                   .fadeIn(duration: 500.ms)
                   .slideX(begin: 0.2, end: 0),
 
@@ -147,7 +147,7 @@ class HomeScreen extends GetView<HomeController> {
                     item: controller.popularList[i],
                   )
                       .animate(
-                          delay: (1200 + i * 150).ms) // sequential per item
+                          delay: (1200 + i * 150).ms)
                       .fadeIn(duration: 400.ms)
                       .scale(begin: const Offset(0.8, 0.8), end: const Offset(1, 1)),
                 ),

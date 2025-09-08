@@ -1,27 +1,17 @@
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
-  void onProfileTap() {
-    // Navigate to profile details
-  }
 
-  void onNotificationTap() {
-    // Navigate to notifications settings
-  }
+  void onProfileTap() {}
 
-  void onLanguageTap() {
-    // Open language selection
-  }
+  void onNotificationTap() {}
 
-  void onPrivacyTap() {
-    // Navigate to privacy policy
-  }
+  void onLanguageTap() {}
 
-  void onHelpTap() {
-    // Navigate to help center
-  }
+  void onPrivacyTap() {}
 
-  void onAboutTap() {
-    // Navigate to about us
-  }
+  void onHelpTap() {}
+
+  void onAboutTap() {}
+
 }

@@ -27,40 +27,33 @@ class CartController extends GetxController {
     ),
   ].obs;
 
-  // Cart operations
   void removeFromCart(CartModel item) => carts.remove(item);
 
   void increaseQuantity(CartModel item) {
     final index = carts.indexOf(item);
     if (index != -1) {
-      // carts[index] = carts[index].copyWith(
-      //   productCount: carts[index].productCount + 1,
-      // );
+
     }
   }
 
   void decreaseQuantity(CartModel item) {
     final index = carts.indexOf(item);
     if (index != -1 && carts[index].productCount > 1) {
-      // carts[index] = carts[index].copyWith(
-      //   productCount: carts[index].productCount - 1,
-      // );
+
     }
   }
 
-  // Order summary calculations
+  /// Order summary calculations
   int get totalItems => carts.fold(0, (sum, item) => sum + item.productCount);
 
   double get subtotal =>
       carts.fold(0, (sum, item) => sum + (item.productPrice * item.productCount));
 
-  double get discount => 4; // static for now
+  double get discount => 4;
 
-  double get deliveryCharge => 2; // static for now
+  double get deliveryCharge => 2;
 
   double get total => subtotal - discount + deliveryCharge;
 
-  void onMenuPressed() {
-    // Handle menu options
-  }
+  void onMenuPressed() {}
 }

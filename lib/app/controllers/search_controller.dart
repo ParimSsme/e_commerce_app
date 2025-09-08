@@ -8,13 +8,13 @@ class SearchController extends GetxController {
 
   List<ProductModel> get products => DummyData.products;
 
-  // Filtered products list
+  /// Filtered products list
   final filteredProducts = <ProductModel>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    filteredProducts.assignAll(products); // show all by default
+    filteredProducts.assignAll(products); /// show all by default
   }
 
   void filterProducts(String query) {

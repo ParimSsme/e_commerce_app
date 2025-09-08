@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/app/data/models/order_model.dart';
-
 import '../../core/resources/app_images.dart';
 import 'models/product_model.dart';
 
