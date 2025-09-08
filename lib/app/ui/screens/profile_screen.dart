@@ -47,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              /// Profile Options (Staggered)
+              /// Profile Options
               ...[
                 ActionTile(
                   iconPath: AppIcons.profile,
@@ -76,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ]
                   .animate(
-                      interval: 150.ms, delay: 600.ms) // stagger each option
+                      interval: 150.ms, delay: 600.ms)
                   .fadeIn(duration: 400.ms)
                   .slideX(begin: -0.2, end: 0),
 

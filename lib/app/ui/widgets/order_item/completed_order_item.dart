@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/app/data/models/order_model.dart';
 import 'package:flutter/material.dart';
-
 import '../../theme/app_colors.dart';
 import '../../theme/app_text_styles.dart';
 
@@ -22,7 +21,7 @@ class CompletedOrderItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Product Image
+          /// Product Image
           SizedBox(
             height: 99,
             width: 126,
@@ -38,7 +37,7 @@ class CompletedOrderItem extends StatelessWidget {
           ),
           const SizedBox(width: 10),
 
-          // Product Info
+          /// Product Info
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,

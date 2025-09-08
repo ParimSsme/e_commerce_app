@@ -1,7 +1,5 @@
 import 'package:e_commerce_app/app/data/models/order_model.dart';
-import 'package:e_commerce_app/app/ui/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
-
 import '../../theme/app_colors.dart';
 import '../../theme/app_text_styles.dart';
 
@@ -23,7 +21,7 @@ class ActiveOrderItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          // Product Image
+          /// Product Image
           SizedBox(
             height: 99,
             width: 126,
@@ -39,7 +37,7 @@ class ActiveOrderItem extends StatelessWidget {
           ),
           const SizedBox(width: 10),
 
-          // Product Info
+          /// Product Info
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../../data/models/order_model.dart';
 import 'package:get/get.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
 import '../widgets/circle_icon_button.dart';
 
 class OrdersScreen extends GetView<OrdersController> {
@@ -98,7 +97,7 @@ class OrdersScreen extends GetView<OrdersController> {
                         child: SlideTransition(
                           position: animation.drive(
                             Tween<Offset>(
-                              begin: const Offset(0.1, 0), // slide from right
+                              begin: const Offset(0.1, 0),
                               end: Offset.zero,
                             ).chain(CurveTween(curve: Curves.easeOut)),
                           ),
@@ -107,7 +106,7 @@ class OrdersScreen extends GetView<OrdersController> {
                       );
                     },
                     child: ListView.builder(
-                      key: ValueKey(controller.selectedIndex.value), // important!
+                      key: ValueKey(controller.selectedIndex.value), /// important!
                       itemCount: controller.displayedOrders.length,
                       itemBuilder: (context, index) {
                         final order = controller.displayedOrders[index];
@@ -134,11 +133,7 @@ class OrdersScreen extends GetView<OrdersController> {
           ),
         ),
       ),
-    )
-    // Whole screen entry animation
-        .animate()
-        .fadeIn(duration: 300.ms)
-        .slideY(begin: 0.05, end: 0);
+    );
   }
 }
 

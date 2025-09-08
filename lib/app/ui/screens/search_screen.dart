@@ -8,7 +8,6 @@ import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import '../widgets/search_product_item.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'filters_screen.dart';
 
 class SearchScreen extends GetView<SearchController> {
   const SearchScreen({super.key});
@@ -107,7 +106,7 @@ class SearchScreen extends GetView<SearchController> {
                     itemBuilder: (_, index) {
                       return SearchProductItem(
                               item: controller.filteredProducts[index])
-                          .animate(delay: (120 * index).ms) // staggered entry
+                          .animate(delay: (120 * index).ms)
                           .fadeIn(duration: 500.ms)
                           .scale(
                               begin: const Offset(0.6, 0.6),

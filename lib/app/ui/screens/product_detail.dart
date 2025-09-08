@@ -25,7 +25,7 @@ class ProductDetail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Hero Image (fade + slide up)
+            /// Hero Image
             Hero(
                 tag: "product_${product.name}",
                 child: Container(
@@ -68,7 +68,7 @@ class ProductDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 10,
                 children: [
-                  /// Name + Price (depth zoom)
+                  /// Name + Price
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -91,7 +91,7 @@ class ProductDetail extends StatelessWidget {
                     ],
                   ),
 
-                  /// Rating (slide from right)
+                  /// Rating
                   Row(
                     children: [
                       SvgPicture.asset(AppIcons.star),
@@ -114,7 +114,7 @@ class ProductDetail extends StatelessWidget {
 
                   const SizedBox(height: AppSpacing.sm),
 
-                  /// Description (fade + slide left)
+                  /// Description
                   const Text("Description", style: AppTextStyles.headingMedium)
                       .animate(delay: 600.ms)
                       .fadeIn(duration: 400.ms)
@@ -130,7 +130,7 @@ class ProductDetail extends StatelessWidget {
 
                   const SizedBox(height: AppSpacing.sm),
 
-                  /// Sizes (Drop-in effect)
+                  /// Sizes
                   if (product.sizes.isNotEmpty) ...[
                     const Text("Sizes", style: AppTextStyles.headingMedium)
                         .animate(delay: 900.ms)
@@ -169,7 +169,7 @@ class ProductDetail extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(50), // full width
+                    minimumSize: const Size.fromHeight(50),
                   ),
                   child: const Text("Buy Now"),
                 ),
